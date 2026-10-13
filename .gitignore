@@ -1,0 +1,33 @@
+# ~~ peaclock
+apps/cli/peaclock/.peaclock/history
+
+# ~ btop
+**/btop.conf
+**/*/dynamic.micro
+.peaclock/config
+
+# secrets / keys - never public
+*.pem
+*.key
+id_*
+.credentials*
+credentials*
+
+# local-only state
+*history*
+.zsh_history
+.gnupg/
+.ssh/
+.venv/
+__pycache__/
+*.pyc
+
+# personal vault state
+**/workspace.json
+
+# editor / tool backups - never track
+*.bak
+*~
+*.orig
+*.swp
+*.swo

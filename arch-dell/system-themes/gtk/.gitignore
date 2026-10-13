@@ -1,0 +1,4 @@
+# nested upstream theme checkouts - do not track inner git
+*/MacTahoe-gtk-theme/.git/
+*.pack
+*.mp4
