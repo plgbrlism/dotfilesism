@@ -10,7 +10,7 @@
 local signal = vim.uv.new_signal()
 signal:start(vim.uv.constants.SIGUSR1, function()
   vim.schedule(function()
-    package.loaded["calamus.palette"] = nil
-    require("calamus").load()
+    package.loaded["rizzoo.palette"] = nil
+    require("rizzoo").load()
   end)
 end)

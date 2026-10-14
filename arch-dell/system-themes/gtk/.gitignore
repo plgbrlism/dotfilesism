@@ -1,4 +1,4 @@
-# nested upstream theme checkouts - do not track inner git
-*/MacTahoe-gtk-theme/.git/
+# upstream theme source, cloned by setup-gtk.sh - only reload.sh + bckp tracked
+mac-tahoe/MacTahoe-gtk-theme/
 *.pack
 *.mp4

@@ -3,7 +3,7 @@
 # installer animation uses setterm, needs TERM in terminfo; no real tty here, so honest 'dumb'
 export TERM="${TERM:-dumb}"
 
-THEME_DIR=$(realpath "$HOME/dotfiles-pub/gtk/mac-tahoe/MacTahoe-gtk-theme")
+THEME_DIR=$(realpath "$HOME/dotfilesism/arch-dell/system-themes/gtk/mac-tahoe/MacTahoe-gtk-theme")
 
 cd "$THEME_DIR" || { echo "Error: Could not find theme folder at $THEME_DIR"; exit 1; }
 
