@@ -4,14 +4,10 @@ set -euo pipefail
 d="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$d"
 command -v stow >/dev/null || { echo "error: stow missing" >&2; exit 1; }
-for p in dot-profile dot-xinitrc dot-xprofile dot-zprofile; do
-  while IFS= read -r -d "" s; do
-    r="${s#"$p"/}"
-    case "$r" in .git|.git/*|*.gitignore) continue;; esac
-    [ -d "$s" ] && [ ! -L "$s" ] && continue
-    t="$HOME/$r"
-    if [ -e "$t" ] && [ ! -L "$t" ]; then mv "$t" "$t.bak"; echo "backup: $t"; fi
-  done < <(find "$p" -mindepth 1 -print0)
-done
-stow --no-folding --ignore='\.gitignore' -R -d . -t "$HOME" dot-profile dot-xinitrc dot-xprofile dot-zprofile
+[ -d "$HOME/.config" ] || mkdir -p "$HOME/.config"
+[ -e "$HOME/.profile" ] && [ ! -L "$HOME/.profile" ] && mv "$HOME/.profile" "$HOME/.profile.bak"
+[ -e "$HOME/.xinitrc" ] && [ ! -L "$HOME/.xinitrc" ] && mv "$HOME/.xinitrc" "$HOME/.xinitrc.bak"
+[ -e "$HOME/.xprofile" ] && [ ! -L "$HOME/.xprofile" ] && mv "$HOME/.xprofile" "$HOME/.xprofile.bak"
+[ -e "$HOME/.zprofile" ] && [ ! -L "$HOME/.zprofile" ] && mv "$HOME/.zprofile" "$HOME/.zprofile.bak"
+stow -R --target="$HOME" --ignore='\.gitignore' dot-profile dot-xinitrc dot-xprofile dot-zprofile
 echo done: stowed dot-profile dot-xinitrc dot-xprofile dot-zprofile

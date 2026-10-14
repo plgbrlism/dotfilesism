@@ -4,14 +4,8 @@ set -euo pipefail
 d="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 cd "$d"
 command -v stow >/dev/null || { echo "error: stow missing" >&2; exit 1; }
-for p in nvim zed; do
-  while IFS= read -r -d "" s; do
-    r="${s#"$p"/}"
-    case "$r" in .git|.git/*|*.gitignore) continue;; esac
-    [ -d "$s" ] && [ ! -L "$s" ] && continue
-    t="$HOME/$r"
-    if [ -e "$t" ] && [ ! -L "$t" ]; then mv "$t" "$t.bak"; echo "backup: $t"; fi
-  done < <(find "$p" -mindepth 1 -print0)
-done
-stow --no-folding --ignore='\.gitignore' -R -d . -t "$HOME" nvim zed
+[ -d "$HOME/.config" ] || mkdir -p "$HOME/.config"
+[ -e "$HOME/.config/nvim" ] && [ ! -L "$HOME/.config/nvim" ] && mv "$HOME/.config/nvim" "$HOME/.config/nvim.bak"
+[ -e "$HOME/.config/zed" ] && [ ! -L "$HOME/.config/zed" ] && mv "$HOME/.config/zed" "$HOME/.config/zed.bak"
+stow -R --target="$HOME" --ignore='\.gitignore' nvim zed
 echo done: stowed nvim zed
