@@ -4,6 +4,19 @@ apps/cli/peaclock/.peaclock/history
 # ~ btop
 **/btop.conf
 **/*/dynamic.micro
+
+# rizzoo-generated outputs - regen via `rizzoo -r -o`, never track
+**/variants/dynamic.*
+**/nvim/lua/rizzoo/palette.lua
+**/niri/kdl/layout.kdl
+**/qt5ct/colors/dynamic.conf
+**/qt6ct/colors/dynamic.conf
+**/Kvantum/KvMaterial/KvMaterial.svg
+**/Kvantum/KvMaterial/KvMaterial.kvconfig
+**/noctalia/palettes/rizzoo.json
+**/btop/themes/dynamic.theme
+**/zed/themes/dynamic.json
+**/starship/rizzoo.toml
 .peaclock/config
 
 # secrets / keys - never public

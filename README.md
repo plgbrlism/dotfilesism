@@ -52,7 +52,7 @@ gtk themes need one extra step (upstream clones, not stowed):
 
 ## notes
 
-- rizzoo-managed files (`dynamic*`, palettes, `layout.kdl` colors) get overwritten on theme switch. commit snapshots if you like them.
+- rizzoo-managed files (`dynamic*`, palettes, `layout.kdl`, nvim `palette.lua`) are untracked by design. installer regenerates them at the end (`rizzoo -r -o`); rerun that anytime by hand.
 - `btop.conf`, shell history, keys never tracked (see `.gitignore`).
 - gtk theme source (`mac-tahoe/MacTahoe-gtk-theme`) is a nested checkout, not versioned here.
 - arch only. needs `stow`, `git`, `yay` (auto-bootstrapped for aur modules).

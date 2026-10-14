@@ -116,6 +116,14 @@ fi
 
 echo "done: ${sel[*]}"
 
+# regen rizzoo outputs (untracked by design) after everything is stowed
+if command -v rizzoo >/dev/null 2>&1; then
+  echo "regen: rizzoo -r -o"
+  rizzoo -r -o || echo "note: rizzoo regen failed, run rizzoo -r -o by hand"
+else
+  echo "note: rizzoo missing, generated theme files skipped"
+fi
+
 gtk=0
 for m in "${sel[@]}"; do [ "$m" = "system-themes" ] && gtk=1; done
 if [ "$gtk" = 1 ]; then
