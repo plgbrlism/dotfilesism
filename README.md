@@ -1,6 +1,6 @@
 # dotfilesism
 
-personal minimal dotfiles. arch laptop via stow, hp box via nix flake.
+personal minimal dotfiles. arch laptop via stow and hp box via nix flake.
 
 ## layout
 
