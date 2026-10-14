@@ -30,6 +30,7 @@
     onlyoffice-desktopeditors
     anki-bin
     bitwarden-desktop
+    anydesk # remote desktop (unfree, allowUnfree already set)
 
     #  Vector / Design & Mobile Tools
     inkscape

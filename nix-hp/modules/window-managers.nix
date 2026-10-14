@@ -27,5 +27,6 @@
   ] ++ (with pkgs; [
     brightnessctl
     libnotify
+    xwayland-satellite # XWayland for niri (anydesk etc)
   ]);
 }

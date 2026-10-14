@@ -6,5 +6,8 @@ spawn-at-startup "dbus-update-activation-environment --systemd WAYLAND_DISPLAY X
 // 2. Tell systemd to fire up the GTK portal service now that the condition is met
 spawn-at-startup "systemctl --user start xdg-desktop-portal-gtk"
 
+// 3. XWayland support for X11 apps (anydesk etc), niri has none built in
+spawn-at-startup "xwayland-satellite"
+
 // ~~ laptop power optimization ~~
 spawn-at-startup "sudo /usr/sbin/powertop --auto-tune"

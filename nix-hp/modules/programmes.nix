@@ -7,8 +7,7 @@
     lfs.enable = true;
   };
 
-  # Enable interactive shell system-wide hooks
-  programs.zsh.enable = true;
+  # fish login shell (user shell set in hosts/hp/configuration.nix)
 
   #  CLI & UTILITY PACKAGES
   environment.systemPackages = [
@@ -64,9 +63,6 @@
     scdoc
 
     # Shell Essentials (config lives in home/shell.nix)
-    starship
-    zsh-autosuggestions
-    zsh-syntax-highlighting
 
     # Libraries & Format Parsing Headers
     nlohmann_json
