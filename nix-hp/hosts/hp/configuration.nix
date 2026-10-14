@@ -30,14 +30,14 @@
     isNormalUser = true;
     description = "paul";
     extraGroups = [ "wheel" "networkmanager" "video" "audio" "input" "docker" ];
-    shell = pkgs.zsh;
+    shell = pkgs.fish;
 	openssh.authorizedKeys.keys = [
       "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIAz/ipNXgjyzEyM7pbGrJRG5J//KfTJ4IK+bvILOnNrD"
     ];
   };
 
-  # Enable system-wide interactive shell hooks
-  programs.zsh.enable = true;
+  # fish login shell needs registering system-wide
+  programs.fish.enable = true;
 
   # Nix Package Manager & Flakes configuration
   nix.settings = {

@@ -1,15 +1,5 @@
 { config, pkgs, ... }:
 
-let
-  term-fallback = pkgs.writeShellScriptBin "launch-terminal" ''
-    if [ -n "$WAYLAND_DISPLAY" ]; then
-      exec ${pkgs.foot}/bin/foot "$@"
-    else
-      # Under X11 / i3: fallback to suckless terminal (st) or alacritty
-      exec ${pkgs.st}/bin/st "$@"
-    fi
-  '';
-in
 {
   imports = [
     ./shell.nix
@@ -23,17 +13,14 @@ in
     stateVersion = "26.05";
 
     sessionVariables = {
-      TERMINAL = "launch-terminal";
+      TERMINAL = "kitty";
       EDITOR = "nvim";
       VISUAL = "nvim";
     };
 
     packages = with pkgs; [
-      term-fallback
-      st
       foot
       kitty
-      alacritty
     ];
   };
 
