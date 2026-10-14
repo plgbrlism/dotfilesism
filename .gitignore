@@ -16,7 +16,6 @@ apps/cli/peaclock/.peaclock/history
 **/noctalia/palettes/rizzoo.json
 **/btop/themes/dynamic.theme
 **/zed/themes/dynamic.json
-**/starship/rizzoo.toml
 .peaclock/config
 
 # secrets / keys - never public

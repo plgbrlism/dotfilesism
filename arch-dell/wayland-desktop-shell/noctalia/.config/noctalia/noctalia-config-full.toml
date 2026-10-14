@@ -3,11 +3,14 @@ high_contrast = false
 ui_scale = 1.0
 
 [audio]
+enable_notification_sounds = true
 enable_overdrive = false
+enable_power_sounds = true
+enable_screenshot_sounds = true
 enable_sounds = false
-notification_sound = ""
+enable_volume_sounds = true
+sound_theme = "freedesktop"
 sound_volume = 0.5
-volume_change_sound = ""
 
 [backdrop]
 blur_intensity = 1.0
@@ -19,16 +22,19 @@ order = [ "zwam" ]
 
     [bar.zwam]
     auto_hide = false
+    auto_hide_delay_ms = 0
     background_opacity = 1.0
     border = "outline"
     border_width = 0.0
     capsule = true
+    capsule_border_width = 1.0
     capsule_fill = "surface_variant"
     capsule_group = []
     capsule_opacity = 1.0
     capsule_padding = 12.0
     capsule_thickness = 0.75999999046325684
     center = [ "tray" ]
+    compositor_blur = true
     concave_edge_corners = true
     contact_shadow = false
     enabled = true
@@ -53,6 +59,7 @@ order = [ "zwam" ]
     scale = 1.0
     shadow = false
     show_on_workspace_switch = true
+    show_tooltip = true
     smart_auto_hide = false
     start = [ "control-center", "launcher", "workspaces" ]
     thickness = 34
@@ -70,10 +77,18 @@ minimum_brightness = 0.049999997019767761
 sync_all_monitors = false
 
 [calendar]
+dedupe_events = false
+dedupe_ignore_patterns = []
 enabled = false
 event_date_format = "%A %e %B"
 event_time_format = "%H:%M"
 refresh_minutes = 15
+
+    [calendar.reminders]
+    all_day_digest_time = "09:00"
+    default_lead_minutes = 10
+    enabled = true
+    use_event_reminders = true
 
 [control_center]
 hidden_tabs = [ "weather", "calendar" ]
@@ -136,7 +151,6 @@ magnification_scale = 1.4500000476837158
 main_axis_padding = 16
 margin_edge = 0
 margin_ends = 0
-monitors = []
 pinned = []
 position = "bottom"
 radius = 16
@@ -243,11 +257,15 @@ sunset = ""
 allow_empty_password = false
 blur_intensity = 0.5
 blurred_desktop = true
+edge_smoothness = 0.30000001192092896
 enabled = true
 fingerprint = false
+grace_period_seconds = 0
 lock_before_suspend = false
 monitors = []
 tint_intensity = 0.30000001192092896
+transition = [ "fade", "wipe", "disc", "stripes", "zoom", "honeycomb" ]
+transition_duration = 1500.0
 wallpaper = ""
 
 [lockscreen_widgets]
@@ -297,8 +315,11 @@ temperature_night = 4000
 [notification]
 background_opacity = 0.97000002861022949
 border = true
+border_color = "outline"
+border_width = 1.0
 collapse_on_dismiss = true
 enable_daemon = true
+follow_focused_output = false
 history_retention_hours = 0
 keep_dismissed_in_history = true
 layer = "top"
@@ -310,11 +331,16 @@ position = "bottom_right"
 scale = 1.0
 show_actions = true
 show_app_name = true
+width = 360
 
 [osd]
 background_opacity = 0.97000002861022949
 border = true
+border_color = "outline"
+border_width = 1.0
 enabled = true
+follow_focused_output = false
+hide_delay_ms = 1400
 monitors = []
 offset_x = 20
 offset_y = 8
@@ -360,7 +386,7 @@ enabled = []
 
 [shell]
 app_icon_colorize = false
-avatar_path = ""
+avatar_path = "/home/paul/Pictures/icons/a_guy_with_white_hair_and_blue_eyes.webp"
 button_borders = false
 card_borders = false
 clipboard_auto_paste = "auto"
@@ -384,14 +410,18 @@ password_style = "random"
 polkit_agent = false
 popup_borders = false
 popup_shadows = false
+readline_shortcuts = false
 screen_time_enabled = false
+settings_expand_all_groups = false
 settings_show_advanced = true
 settings_window_translucent = false
 setup_wizard_enabled = true
 shared_gl_context = true
+show_close_buttons = true
 show_location = true
 telemetry_enabled = false
 time_format = "{:%H:%M}"
+umbriel_overview_type_to_launch_enabled = false
 
     [shell.animation]
     enabled = true
@@ -406,16 +436,27 @@ time_format = "{:%H:%M}"
     app_grid = false
     auto_paste = "auto"
     categories = false
+    category_icons_only = false
     compact = false
+    default_view = "recent"
     fetch_exchange_rates = true
+    layout = "full"
     pinned = []
     provider_prefix = "/"
+    search_position = "bottom"
     show_app_actions = false
     show_app_origin_indicator = true
     show_icons = true
+    show_session_button = true
+    show_settings_button = true
     sort_by_usage = true
+    track_usage = true
+    width = 760
 
         [shell.launcher.dmenu]
+
+        [shell.launcher.panels]
+        ignored = [ "polkit", "setup-wizard", "test", "launcher" ]
 
         [shell.launcher.providers.calculator]
         prefix = ""
@@ -424,6 +465,8 @@ time_format = "{:%H:%M}"
     blacklist = []
 
     [shell.panel]
+    border_color = "outline"
+    border_width = 1.0
     borders = true
     clipboard_placement = "floating"
     clipboard_position = "center"
@@ -447,6 +490,7 @@ time_format = "{:%H:%M}"
     transparency_mode = "solid"
     wallpaper_placement = "attached"
     wallpaper_position = "auto"
+    wallpaper_show_names = true
 
     [shell.privacy]
     cam_filter_regex = ""
@@ -458,16 +502,21 @@ time_format = "{:%H:%M}"
     size = 32
 
     [shell.screenshot]
-    confirm_region = false
+    annotate = false
+    close_on_copy = true
+    close_on_save = true
+    confirm_region = true
     copy_to_clipboard = true
     directory = "/home/paul/Pictures/Screenshots"
     filename_pattern = ""
     freeze_screen = true
     pipe_command = ""
     pipe_to_command = false
+    region_modifier = "none"
     remember_last_region = false
     save_to_file = true
     show_cursor = false
+    skip_annotate_on_copy_save = false
 
     [shell.session]
     grid = true
@@ -531,7 +580,13 @@ time_format = "{:%H:%M}"
     direction = "center"
 
     [shell.window_switcher]
+    current_workspace_only = false
     mru = false
+    show_all_outputs = true
+    show_app_icon = true
+    show_caption = true
+    show_count = true
+    style = "carousel"
 
 [storage]
 key_file = ""
