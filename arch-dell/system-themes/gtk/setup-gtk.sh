@@ -10,19 +10,8 @@ need() {
 
 need git
 
-choose() {
-  local prompt="$1"; shift
-  local i opt
-  echo "$prompt" >&2
-  select opt in "$@"; do
-    [ -n "$opt" ] && { echo "$opt"; return 0; }
-  done
-}
-
 # name|subdir|repo-path|reload-script|flatpak-prefix
-THEMES="colloid|colloid/Colloid-gtk-theme|vinceliuice/Colloid-gtk-theme.git|colloid/reload.sh|Colloid
-graphite|graphite/Graphite-gtk-theme|vinceliuice/Graphite-gtk-theme.git|graphite/reload.sh|Graphite
-mac-tahoe|mac-tahoe/MacTahoe-gtk-theme|vinceliuice/MacTahoe-gtk-theme.git|mac-tahoe/reload.sh|Mac"
+THEMES="mac-tahoe|mac-tahoe/MacTahoe-gtk-theme|vinceliuice/MacTahoe-gtk-theme.git|mac-tahoe/reload.sh|Mac"
 
 ensure_clone() {
   local dir="$1" repo="$2"
@@ -63,19 +52,8 @@ install_one() {
   flatpak_setup "$(echo "$entry" | cut -d'|' -f5)"
 }
 
-CHOICE=$(choose "GTK theme?" $(echo "$THEMES" | cut -d'|' -f1) all) || exit 1
+# remove the mac variants, not the whole ~/.themes.
+rm -rf "$THEMES_DIR"/Mac*
 
-# remove only the three gtk variants, not the whole ~/.themes.
-rm -rf "$THEMES_DIR"/Colloid* "$THEMES_DIR"/Graphite* "$THEMES_DIR"/Mac*
-
-if [ "$CHOICE" = "all" ]; then
-  fails=0
-  while IFS= read -r entry; do install_core "$entry" & done <<< "$THEMES"
-  for job in $(jobs -p); do wait "$job" || fails=$((fails + 1)); done
-  [ "$fails" -eq 0 ] || { echo "Error: $fails theme(s) failed." >&2; exit 1; }
-  flatpak_setup
-else
-  install_one "$(echo "$THEMES" | grep "^$CHOICE|")"
-fi
-
-echo "Done: $CHOICE installed."
+install_one "$THEMES"
+echo "Done: Mac-Tahoe by vinceliuice is now installed."
