@@ -1,47 +1,41 @@
 { config, ... }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/dotfiles-pub";
-  dotfilesPriv = "${config.home.homeDirectory}/dotfiles-priv";
+  dotfiles = "${config.home.homeDirectory}/dotfilesism/arch-dell";
 
   link = config.lib.file.mkOutOfStoreSymlink;
 in
 {
   xdg.configFile = {
-	# Shell Desktop
-	"noctalia".source = link "${dotfiles}/noctalia-hp/.config/noctalia";
-	
-    #  Window Managers
-    "sway".source = link "${dotfiles}/apps/wm/sway/.config/sway";
-    "niri".source = link "${dotfiles}/apps/wm/niri/.config/niri";
+    # desktop shell (shared dell/hp config for now)
+    "noctalia".source = link "${dotfiles}/wayland-desktop-shell/noctalia/.config/noctalia";
 
-    #  Terminals
-    "kitty".source = link "${dotfiles}/apps/terminal/kitty/.config/kitty";
-    "alacritty".source = link "${dotfiles}/apps/terminal/alacritty/.config/alacritty";
-    "foot".source = link "${dotfiles}/apps/terminal/foot/.config/foot";
-    "ghostty".source = link "${dotfiles}/apps/terminal/ghostty/.config/ghostty";
+    # window managers
+    "sway".source = link "${dotfiles}/window-managers/sway/.config/sway";
+    "niri".source = link "${dotfiles}/window-managers/niri/.config/niri";
+    "kanshi".source = link "${dotfiles}/monitor-management/kanshi/.config/kanshi";
 
-    #  CLI Tools
-    "btop".source = link "${dotfiles}/apps/cli/btop/.config/btop";
-    "cava".source = link "${dotfiles}/apps/cli/cava/.config/cava";
-    "fastfetch".source = link "${dotfiles}/apps/cli/fastfetch/.config/fastfetch";
-    "rizzoo".source = link "${dotfiles}/apps/cli/rizzoo/.config/rizzoo";
+    # terminals
+    "kitty".source = link "${dotfiles}/terminal-emulator/kitty/.config/kitty";
+    "foot".source = link "${dotfiles}/terminal-emulator/foot/.config/foot";
 
-    #  Private CLI
-    "glow".source = link "${dotfilesPriv}/cli/glow/.config/glow";
-    "yazi".source = link "${dotfilesPriv}/cli/yazi/.config/yazi";
-    "micro".source = link "${dotfilesPriv}/editor/micro/.config/micro"; 
+    # editors
+    "nvim".source = link "${dotfiles}/integrated-development-env/nvim/.config/nvim";
+    "micro".source = link "${dotfiles}/text-editor/micro/.config/micro";
 
-    #  Screenshots
-    "flameshot".source = link "${dotfilesPriv}/capture/flameshot/.config/flameshot";
+    # cli tools
+    "btop".source = link "${dotfiles}/system-monitor/btop/.config/btop";
+    "fastfetch".source = link "${dotfiles}/system-monitor/fastfetch/.config/fastfetch";
+    "rizzoo".source = link "${dotfiles}/dynamic-theme-management/rizzoo/.config/rizzoo";
+    "yazi".source = link "${dotfiles}/file-management/yazi/.config/yazi";
 
-    #  Services
-    # "systemd".source = link "${dotfilesPriv}/service/systemd/.config/systemd";
-    "xdg-desktop-portal".source = link "${dotfilesPriv}/service/xdg-desktop-portal/.config/xdg-desktop-portal";s
+    # services
+    "xdg-desktop-portal".source = link "${dotfiles}/xdg-desktop-portal-management/xdg-desktop-portal/.config/xdg-desktop-portal";
   };
 
   home.file = {
-    # ".zshrc".source = link "${dotfilesPriv}/zsh/.zshrc";
-    ".xinitrc".source = link "${dotfilesPriv}/env/.xinitrc";
+    # wm helper, spawned by sway apps.conf and niri keybinds
+    ".local/bin/dispatch".source = link "${dotfiles}/window-managers/helper-script/dispatcher/.local/bin/dispatch";
+    ".xinitrc".source = link "${dotfiles}/shell-startup/dot-xinitrc/.xinitrc";
   };
 }
