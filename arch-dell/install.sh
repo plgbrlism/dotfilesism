@@ -81,10 +81,10 @@ elif [ "$tty" = 1 ] || [ "$force_pick" = 1 ]; then
   [ "$tty" = 1 ] || { echo "error: picker needs a tty, pass entries (see --list)" >&2; exit 1; }
   while true; do
     mapfile -t picks < <(printf '%s\n' "${entries[@]}" \
-      | fzf --multi --bind 'load:select-all,ctrl-a:select-all,ctrl-d:deselect-all' \
+      | SHELL=/bin/bash fzf --multi --bind 'load:select-all,ctrl-a:select-all,ctrl-d:deselect-all' \
             --header 'tab toggles, ctrl-a all, ctrl-d none, enter confirms' \
-            --preview 'e={}; m="${e%%/*}"; grep -h -E "^# (pkgs|aur|no packages|stow|usage)" "'"$root"'"/$m/install.sh "'"$root"'"/$m/setup.sh 2>/dev/null' \
-            --preview-window 'right,40%' || true)
+            --preview 'e={}; m="${e%%/*}"; grep -h -E "^# (pkgs|aur|no packages|stow)" "'"$root"'"/$m/install.sh "'"$root"'"/$m/setup.sh 2>/dev/null | fold -s -w 32' \
+            --preview-window 'right,45%,wrap' || true)
     [ "${#picks[@]}" -eq 0 ] && { echo "aborted: nothing picked"; exit 0; }
     [ "$yes" = 1 ] && break
     gum confirm "install ${#picks[@]} units: ${picks[*]}?" && break

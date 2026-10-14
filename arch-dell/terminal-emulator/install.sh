@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # usage: ./install.sh [foot] [kitty] — no args = all
+# pkgs: foot kitty
 apps=("$@"); [ "$#" -eq 0 ] && apps=(foot kitty)
 for a in "${apps[@]}"; do
   case "$a" in

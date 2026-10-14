@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # usage: ./install.sh [fish] [zsh] — no args = all
+# pkgs: fzf fd bat tldr zoxide tmux + fish | zsh zsh-autosuggestions zsh-syntax-highlighting
 apps=("$@"); [ "$#" -eq 0 ] && apps=(fish zsh)
 # base tools, shell-agnostic
 sudo pacman -S --needed --noconfirm fzf fd bat tldr zoxide tmux

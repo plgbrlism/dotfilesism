@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # usage: ./install.sh [niri] [sway] — no args = all. dispatcher needs no packages.
+# pkgs: niri swaybg swaylock grim slurp wl-clipboard xwayland-satellite | aur: swayfx
 apps=("$@"); [ "$#" -eq 0 ] && apps=(niri sway)
 # shared capture + xwayland tools
 sudo pacman -S --needed --noconfirm grim slurp wl-clipboard xwayland-satellite

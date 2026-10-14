@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # usage: ./install.sh [nvim] [zed] — no args = all
+# pkgs: neovim zed
 apps=("$@"); [ "$#" -eq 0 ] && apps=(nvim zed)
 for a in "${apps[@]}"; do
   case "$a" in

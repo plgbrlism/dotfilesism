@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 # usage: ./install.sh [btop] [fastfetch] — no args = all
+# pkgs: btop fastfetch
 apps=("$@"); [ "$#" -eq 0 ] && apps=(btop fastfetch)
 for a in "${apps[@]}"; do
   case "$a" in
