@@ -12,22 +12,27 @@ personal minimal dotfiles. arch laptop via stow and hp box via nix flake.
 ```sh
 git clone <repo> ~/dotfilesism
 cd ~/dotfilesism/arch-dell
-./install.sh --list          # show modules
+./install.sh --list          # show every app (module/app)
 ./install.sh --dry-run       # preview
-./install.sh                 # fzf picker + gum confirms on a tty
+./install.sh                 # fzf app picker + gum confirms on a tty
 ./install.sh --yes            # picker, no confirms
-./install.sh window-managers terminal-emulator text-editor
+./install.sh --interactive  # force picker even with args
+./install.sh window-managers terminal-emulator/kitty text-editor
 ```
 
-per module by hand:
+per app by hand (module scripts take app names, no args = all):
 
 ```sh
 cd arch-dell/window-managers
-./install.sh   # packages
-./setup.sh     # stow into $HOME, existing files moved to *.bak
+./install.sh sway   # packages for sway only (dispatcher needs none)
+./setup.sh sway     # stow sway + dispatcher, existing files moved to *.bak
 ```
 
-gtk themes need one extra step (upstream clones, not stowed):
+bare module name = whole module. picker preselects all (deselect to skip). shell pick offers `chsh` as login shell.
+
+`dispatcher` auto-installs with niri or sway (both spawn it). `shell-startup` + `system-themes` have no per-app split.
+
+gtk themes need one extra step (upstream clones, not stowed — installer offers to run it at the end):
 
 ```sh
 ./arch-dell/system-themes/gtk/setup-gtk.sh
@@ -55,4 +60,4 @@ gtk themes need one extra step (upstream clones, not stowed):
 - rizzoo-managed files (`dynamic*`, palettes, `layout.kdl`, nvim `palette.lua`) are untracked by design. installer regenerates them at the end (`rizzoo -r -o`); rerun that anytime by hand.
 - `btop.conf`, shell history, keys never tracked (see `.gitignore`).
 - gtk theme source (`mac-tahoe/MacTahoe-gtk-theme`) is a nested checkout, not versioned here.
-- arch only. needs `stow`, `git`, `yay` (auto-bootstrapped for aur modules).
+- arch only. needs `stow`, `git`, `gum`, `fzf`, `yay` (auto-bootstrapped for aur modules).
