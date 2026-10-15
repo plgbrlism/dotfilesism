@@ -84,7 +84,7 @@ elif [ "$tty" = 1 ] || [ "$force_pick" = 1 ]; then
       | SHELL=/bin/bash fzf --multi --bind 'load:select-all,ctrl-a:select-all,ctrl-d:deselect-all' \
             --header 'tab toggles, ctrl-a all, ctrl-d none, enter confirms' \
             --preview 'e={}; m="${e%%/*}"; grep -h -E "^# (pkgs|aur|no packages|stow)" "'"$root"'"/$m/install.sh "'"$root"'"/$m/setup.sh 2>/dev/null | fold -s -w 32' \
-            --preview-window 'right,45%,wrap' || true)
+            --preview-window 'right,30%,wrap' || true)
     [ "${#picks[@]}" -eq 0 ] && { echo "aborted: nothing picked"; exit 0; }
     [ "$yes" = 1 ] && break
     gum confirm "install ${#picks[@]} units: ${picks[*]}?" && break
