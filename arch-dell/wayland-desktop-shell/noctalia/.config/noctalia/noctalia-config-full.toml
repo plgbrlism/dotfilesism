@@ -33,28 +33,28 @@ order = [ "zwam" ]
     capsule_opacity = 1.0
     capsule_padding = 12.0
     capsule_thickness = 0.75999999046325684
-    center = [ "tray" ]
+    center = []
     compositor_blur = true
     concave_edge_corners = true
     contact_shadow = false
     enabled = true
-    end = [ "volume", "brightness", "battery", "cpu" ]
+    end = [ "tray", "volume", "brightness", "battery", "cpu" ]
     font_scale = 1.0
     font_weight = 500
     hover_highlight = true
     icon_color = "primary"
     layer = "top"
     margin_edge = 0
-    margin_ends = 0
+    margin_ends = 100
     margin_opposite_edge = 0
     padding = 14
     panel_overlap = 1
     position = "left"
-    radius = 12
-    radius_bottom_left = 0
-    radius_bottom_right = 12
-    radius_top_left = 0
-    radius_top_right = 12
+    radius = 20
+    radius_bottom_left = 15
+    radius_bottom_right = 20
+    radius_top_left = 15
+    radius_top_right = 20
     reserve_space = true
     scale = 1.0
     shadow = false
@@ -565,7 +565,7 @@ shared_gl_context = true
 show_close_buttons = true
 show_location = true
 telemetry_enabled = false
-time_format = "{:%H:%M}"
+time_format = "{:%I:%M %p}"
 umbriel_overview_type_to_launch_enabled = false
 
     [shell.animation]
@@ -611,8 +611,8 @@ umbriel_overview_type_to_launch_enabled = false
 
     [shell.panel]
     border_color = "outline"
-    border_width = 1.0
-    borders = true
+    border_width = 3.0
+    borders = false
     clipboard_placement = "floating"
     clipboard_position = "center"
     control_center_placement = "attached"
@@ -628,13 +628,13 @@ umbriel_overview_type_to_launch_enabled = false
     open_near_click_session = false
     open_near_click_wallpaper = false
     polkit_placement = "floating"
-    polkit_position = "auto"
+    polkit_position = "top_center"
     session_placement = "attached"
     session_position = "auto"
     shadow = false
     transparency_mode = "solid"
-    wallpaper_placement = "attached"
-    wallpaper_position = "auto"
+    wallpaper_placement = "floating"
+    wallpaper_position = "bottom_center"
     wallpaper_show_names = true
 
     [shell.privacy]
@@ -643,8 +643,8 @@ umbriel_overview_type_to_launch_enabled = false
     screen_filter_regex = ""
 
     [shell.screen_corners]
-    enabled = false
-    size = 32
+    enabled = true
+    size = 38
 
     [shell.screenshot]
     annotate = false
@@ -824,15 +824,24 @@ type = "active_window"
 
 [widget.battery]
 color = "primary"
-font_family = "FiraCode Nerd Font Mono Med"
+font_family = "JetBrainsMono NF"
+scale = 1.0
+show_label = false
 type = "battery"
+
+[widget.brightness]
+show_label = false
+show_when_unavailable = true
+type = "brightness"
 
 [widget.control-center]
 glyph = "spider-filled"
 type = "control-center"
 
 [widget.cpu]
-glyph = "device-desktop-analytics"
+capsule_foreground = "primary"
+glyph = "cpu-usage"
+label_show_units = false
 stat = "cpu_usage"
 type = "sysmon"
 
@@ -893,8 +902,10 @@ stat = "cpu_temp"
 type = "sysmon"
 
 [widget.volume]
+capsule_foreground = "secondary"
 glyph = "music"
 mute_glyph = "music-off"
+show_label = false
 type = "volume"
 
 [widget.wallpaper]
@@ -902,5 +913,8 @@ glyph = "image"
 type = "wallpaper"
 
 [widget.workspaces]
-style = "minimal"
+font_family = "JetBrainsMono NF"
+pill_scale = 0.75
+show_labels = false
+style = "regular"
 type = "workspaces"
