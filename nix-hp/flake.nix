@@ -35,7 +35,7 @@
 
     # my own cli-tool color palette generator
     rizzoo = {
-      url = "git+ssh://git@github.com/plgbrlism/rizzoo-dev?ref=dev";
+      url = "git+https://github.com/plgbrlism/rizzoo.git?ref=refs/tags/0.7.3";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
