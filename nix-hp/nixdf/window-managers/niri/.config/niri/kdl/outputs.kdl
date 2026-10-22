@@ -1,0 +1,10 @@
+// ~~ outputs (screen resolution) ~~
+
+output "eDP-1" {
+    mode "1366x768@60"
+}
+
+output "HDMI-A-1" {
+    mode "1366x768@59.79"
+    position x=1366 y=0
+}

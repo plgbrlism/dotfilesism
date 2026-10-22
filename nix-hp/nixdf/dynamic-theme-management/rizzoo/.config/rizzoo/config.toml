@@ -1,0 +1,102 @@
+# ~/.config/rizzoo/config.toml
+# See `rizzoo --help` for all available flags and values.
+#
+# Uncomment and edit only what you want to override.
+
+#style = "tonal-spot"
+#mode = dark
+#contrast = "standard"
+pick = 0
+#prefer = "darkness"
+ 
+#[wallpaper]
+#set = false
+#command = "awww img {{ image }} --transition-type random"
+
+[custom_colors]
+success    = { color = "#386B35", blend = true }
+
+# tui system monitor
+[btop]
+template = "btop.theme"
+output   = "~/.config/btop/themes/dynamic.theme"
+
+# ide
+[zed]
+template = "colors-zed.conf"
+output   = "~/.config/zed/themes/dynamic.json"
+
+[antigravity]
+template = "antigravity.json"
+output   = "~/.config/Antigravity/User/settings.json"
+
+# terminal emulators
+[kitty]
+template = "colors-kitty.conf"
+output   = "~/.config/kitty/colors/variants/dynamic.conf"
+
+[foot]
+template = "colors-foot.ini"
+output   = "~/.config/foot/colors/variants/dynamic.ini"
+
+# text editors
+[micro]
+template = "colors-micro.micro"
+output   = "~/.config/micro/colorschemes/variants/dynamic.micro"
+
+[nvim]
+template = "colors-nvim.lua"
+output   = "~/.config/nvim/lua/rizzoo/palette.lua"
+post_hook = "pkill -USR1 nvim || true"
+
+# window managers
+[sway]
+template = "colors-sway"
+output   = "~/.config/sway/colors/variants/dynamic.conf" 
+
+[niri]
+template = "colors-niri-layout.kdl"
+output   = "~/.config/niri/kdl/layout.kdl"
+
+# idk shi whaever
+[Xresources]
+template = "colors.Xresources"
+output   = "~/xresources/variants/dynamic"
+
+# shell prompt
+[starship]
+template = "colors-starship-tyn.toml"
+output   = "~/.config/starship.toml"
+
+# wayland desktop shell
+[noctalia]
+template = "colors-noctalia.json"
+output   = "~/.config/noctalia/palettes/rizzoo.json"
+
+# mcq card builder (personal)
+[anki-cards]
+template = "mcq-anki.css"
+output   = "~/projects/anki-mcq-builder/static/_theme.css"
+
+# gtk mac-tahoe theme
+[mac-colors]
+template = "mac-colors.scss"
+output   = "~/dotfilesism/arch-dell/system-themes/gtk/mac-tahoe/MacTahoe-gtk-theme/src/sass/_colors.scss"
+post_hook = "~/dotfilesism/arch-dell/system-themes/gtk/mac-tahoe/reload.sh"
+
+# qt theme
+[qt5ct]
+template = "colors-qtct.conf"
+output   = "~/.config/qt5ct/colors/dynamic.conf"
+
+[qt6ct]
+template = "colors-qtct.conf"
+output   = "~/.config/qt6ct/colors/dynamic.conf"
+
+[kvantum]
+template = "colors-kvantum.svg"
+output   = "~/.config/Kvantum/KvMaterial/KvMaterial.svg"
+
+[kvantum-kvconfig]
+template = "colors-kvantum.kvconfig"
+output   = "~/.config/Kvantum/KvMaterial/KvMaterial.kvconfig"

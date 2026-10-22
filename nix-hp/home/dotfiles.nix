@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/dotfilesism/arch-dell";
+  dotfiles = "${config.home.homeDirectory}/dotfilesism/nix-hp/nixdf";
 
   link = config.lib.file.mkOutOfStoreSymlink;
 in

@@ -1,0 +1,90 @@
+#!/usr/bin/env bash
+
+# my dispatcher script for window managers
+# created in order to call a single one-shot script
+# instead of hardcoding applications
+# use-case: multiple machine setups with dynamic preference
+
+run_first() {
+    for cmd in "$@"; do
+        bin="${cmd%% *}"
+        if command -v "$bin" >/dev/null 2>&1; then
+            exec $cmd
+        fi
+    done
+
+    notify-send "dispatcher" "does not exist: $*" 2>/dev/null
+    exit 1
+}
+
+get_terminal_candidates() {
+    local candidates=()
+
+    if [ -n "$WAYLAND_DISPLAY" ]; then
+        # Wayland terminal precedence preference
+        candidates=(kitty foot ghostty alacritty)
+    elif [ -n "$DISPLAY" ]; then
+        # X11 terminal precedence preference
+        candidates=(kitty ghostty alacritty xterm)
+    else
+        # Fallback / TTY / headless
+        candidates=(kitty alacritty xterm)
+    fi
+
+	echo "${candidates[@]}"
+}
+
+get_terminal() {
+    for t in $(get_terminal_candidates); do
+        if command -v "$t" >/dev/null 2>&1; then
+            echo "$t"
+            return 0
+        fi
+    done
+    return 1
+}
+
+case "$1" in
+    # ~~ Terminals ~~
+    terminal)
+        run_first $(get_terminal_candidates)
+        ;;
+
+    # ~~ Terminal File Managers (TUI) ~~
+    terminal-fm)
+        MAIN_TERMINAL="$(get_terminal)"
+        if [ -n "$MAIN_TERMINAL" ]; then
+            run_first \
+                "$MAIN_TERMINAL -e yazi" \
+                "$MAIN_TERMINAL -e ranger" \
+                "$MAIN_TERMINAL -e lf"
+        else
+            notify-send "dispatcher" "No compatible terminal found" 2>/dev/null
+            exit 1
+        fi
+        ;;
+
+    # ~~ GUI File Managers ~~
+    file-manager)
+        run_first nautilus dolphin nemo thunar pcmanfm
+        ;;
+
+    # ~~ Browsers ~~
+    browser)
+        run_first zen-browser brave-origin firefox brave google-chrome
+        ;;
+
+    # ~~ Compositor (X11 only) ~~
+    compositor)
+        if [ -n "\(DISPLAY" ] && [ -z "\)WAYLAND_DISPLAY" ]; then
+            run_first picom
+        else
+            exit 0 >/dev/null 2>&1
+        fi
+        ;;
+
+    *)
+        notify-send "dispatcher" "Unknown category requested: $1" 2>/dev/null
+        exit 1
+        ;;
+esac
