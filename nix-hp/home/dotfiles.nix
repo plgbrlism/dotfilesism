@@ -7,7 +7,7 @@ let
 in
 {
   xdg.configFile = {
-    # desktop shell (shared dell/hp config for now)
+    # desktop shell (own copy under nixdf)
     "noctalia".source = link "${dotfiles}/wayland-desktop-shell/noctalia/.config/noctalia";
 
     # window managers
@@ -24,7 +24,6 @@ in
     "micro".source = link "${dotfiles}/text-editor/micro/.config/micro";
 
     # cli tools
-    "btop".source = link "${dotfiles}/system-monitor/btop/.config/btop";
     "fastfetch".source = link "${dotfiles}/system-monitor/fastfetch/.config/fastfetch";
     "rizzoo".source = link "${dotfiles}/dynamic-theme-management/rizzoo/.config/rizzoo";
     "yazi".source = link "${dotfiles}/file-management/yazi/.config/yazi";

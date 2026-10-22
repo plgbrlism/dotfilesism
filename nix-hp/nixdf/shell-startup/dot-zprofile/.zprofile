@@ -1,4 +1,5 @@
 # ~/.zprofile 
+# for zsh only
 
 # ~~ default apps ~~
 export TERMINAL="kitty"

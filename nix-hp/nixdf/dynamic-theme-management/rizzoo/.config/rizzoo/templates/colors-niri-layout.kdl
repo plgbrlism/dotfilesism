@@ -20,7 +20,7 @@ layout {
 }
 
 overview {
-	backdrop-color "{{ primary:rgba }}"
+//	backdrop-color "{{ primary:rgba }}"
 	workspace-shadow { off; }
 }
 

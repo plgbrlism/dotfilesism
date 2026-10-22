@@ -1,4 +1,5 @@
 # ~/.xprofile 
+# for x11 only
 
 # ~~ default apps ~~
 export TERMINAL="kitty"
