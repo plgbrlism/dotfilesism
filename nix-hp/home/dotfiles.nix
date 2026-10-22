@@ -7,7 +7,7 @@ let
 in
 {
   xdg.configFile = {
-    # desktop shell (own copy under nixdf)
+    # desktop shell (own copy under nix-df)
     "noctalia".source = link "${dotfiles}/wayland-desktop-shell/noctalia/.config/noctalia";
 
     # window managers

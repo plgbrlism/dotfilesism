@@ -33,26 +33,13 @@ fish itself is hm-declarative (`shell.nix`), not linked. starship prompt comes f
 
 ### rizzoo-generated files
 
-the four theme symlinks currently resolve to the static `calamus-*` variants so the config works with no theme daemon:
-
-```
-foot/colors/color-foot.ini        -> variants/calamus-umber.conf
-kitty/colors/colors.conf          -> variants/calamus-dark.conf
-sway/colors/colors.conf           -> variants/calamus-umber.conf
-micro/colorschemes/rizzoo.micro   -> variants/calamus-umber.micro
-```
-
-`nvim/lua/rizzoo/palette.lua` and `zed/themes/dynamic.json` are committed with `git add -f` (normally gitignored generator outputs).
-
-to switch back to rizzoo-generated dynamic colors later: run `rizzoo` once on the hp machine, then repoint:
+theme symlinks point at rizzoo output, which is gitignored on both machines. after a rebuild, relogin and run:
 
 ```sh
-cd ~/dotfilesism/nix-hp/nixdf
-ln -sfn variants/dynamic.ini   terminal-emulator/foot/.config/foot/colors/color-foot.ini
-ln -sfn variants/dynamic.conf  terminal-emulator/kitty/.config/kitty/colors/colors.conf
-ln -sfn variants/dynamic.conf  window-managers/sway/.config/sway/colors/colors.conf
-ln -sfn variants/dynamic.micro text-editor/micro/.config/micro/colorschemes/rizzoo.micro
+rizzoo
 ```
+
+to generate `foot/colors/variants/dynamic.ini`, `kitty`/`sway` `variants/dynamic.conf`, `micro/colorschemes/variants/dynamic.micro`, nvim `lua/rizzoo/palette.lua`, the zed theme and the noctalia palette. until then terminals/editors fall back to their non-dynamic defaults.
 
 ## modules/
 
