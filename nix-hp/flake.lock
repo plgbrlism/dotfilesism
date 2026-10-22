@@ -159,16 +159,16 @@
         ]
       },
       "locked": {
-        "lastModified": 1792332892,
-        "narHash": "sha256-azw1rze+L2qaB5VjKu+rxWYctGpaVfznVN8z+XICoKE=",
-        "ref": "refs/tags/0.7.3",
-        "rev": "c8609c7c0b00b803b8ac3350846d21f30fc24076",
-        "revCount": 68,
+        "lastModified": 1792643147,
+        "narHash": "sha256-JjdRZ/n+ttq6WLODnqiYd2/EkCf1CcH+C8mF4k6RV5I=",
+        "ref": "refs/tags/0.7.4",
+        "rev": "d4bf2bbfafcd05c438b0604efadc2918e03438c9",
+        "revCount": 69,
         "type": "git",
         "url": "https://github.com/plgbrlism/rizzoo.git"
       },
       "original": {
-        "ref": "refs/tags/0.7.3",
+        "ref": "refs/tags/0.7.4",
         "type": "git",
         "url": "https://github.com/plgbrlism/rizzoo.git"
       }

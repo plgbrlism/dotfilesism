@@ -12,7 +12,13 @@
   #  CLI & UTILITY PACKAGES
   environment.systemPackages = [
   	# my personal color palette generator
-	inputs.rizzoo.packages.${pkgs.system}.default
+	# lto off + more codegen units: 4gb hp ooms during fat lto
+	(inputs.rizzoo.packages.${pkgs.system}.default.overrideAttrs (old: {
+	  preBuild = (old.preBuild or "") + ''
+	    export CARGO_PROFILE_RELEASE_LTO=false
+	    export CARGO_PROFILE_RELEASE_CODEGEN_UNITS=16
+	  '';
+	}))
   ] ++ (with pkgs; [
     # Terminal Multiplexers & Editors
     neovim
