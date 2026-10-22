@@ -1,0 +1,94 @@
+// ~~ keybinds ~~
+
+recent-windows { on; }
+
+binds {
+    // Launcher & Apps
+    Super+Return  { spawn "~/.local/bin/dispatch" "terminal"; }
+    Super+E 	  { spawn "~/.local/bin/dispatch" "file-manager"; }
+    Super+Y 	  { spawn "~/.local/bin/dispatch" "terminal-fm"; }
+    Super+R 	  { spawn "noctalia" "msg" "panel-toggle" "launcher"; }
+    Super+W 	  { spawn "noctalia" "msg" "panel-toggle" "wallpaper";}
+    Super+Escape  { spawn "noctalia" "msg" "panel-toggle" "session"; }
+    Super+Space   { spawn "noctalia" "msg" "panel-toggle" "control-center"; }
+
+	// Screenshot via native Niri
+    //Print { screenshot-screen; }
+    //Ctrl+Print { screenshot; }
+    //Alt+Print { screenshot-window; }
+
+	// Screenshot via Noctalia
+    Print { spawn "noctalia" "msg" "screenshot-fullscreen"; }
+    Shift+Print { spawn "noctalia" "msg" "screenshot-region"; }
+    Alt+Print { spawn "noctalia" "msg" "screenshot-fullscreen" "pick"; }
+	
+    // Niri has a built-in alt tab option with preview
+    // Uncomment the following line if you want the noctalia design.
+    // Super+Tab 	  { spawn "noctalia" "msg" "window-switcher"; }
+
+	// Focus
+	Super+H { focus-column-left; }
+	Super+L { focus-column-right; }
+	Super+K { focus-workspace-up; }
+	Super+J { focus-workspace-down; }
+
+	Super+TouchpadScrollDown  cooldown-ms=200 { focus-workspace-down; }
+	Super+TouchpadScrollUp    cooldown-ms=200 { focus-workspace-up; }
+	Super+TouchpadScrollRight cooldown-ms=200 { focus-column-right; }
+	Super+TouchpadScrollLeft  cooldown-ms=200 { focus-column-left; }
+
+    // Window management
+    Super+C repeat=false 	   { close-window; }
+    Super+F repeat=false 	   { fullscreen-window; }
+    Super+Shift+F repeat=false { maximize-column; }
+    Super+V 				   { toggle-window-floating; }
+    Super+Shift+V 			   { switch-focus-between-floating-and-tiling; }
+    Super+M { quit; }
+
+	Mod+Up   { consume-or-expel-window-left; }
+	Mod+Left { consume-or-expel-window-right; }
+	
+    Super+Shift+Equal { switch-preset-column-width; }
+    Super+Shift+Minus { switch-preset-column-width-back; }
+
+    Super+Ctrl+Equal { switch-preset-window-height; }
+    Super+Ctrl+Minus { reset-window-height; }
+
+	// window swapping
+	Super+BracketLeft { swap-window-left; }
+	Super+BracketRight { swap-window-right; }
+			
+	Super+Shift+H  { move-column-left; }
+	Super+Shift+L  { move-column-right; }
+	Super+Shift+J  { move-column-to-workspace-down; }
+	Super+Shift+K  { move-column-to-workspace-up; }
+	
+    // Overview
+    Super+O { toggle-overview; }
+
+    // Workspaces
+    Super+1 { focus-workspace 1; }
+    Super+2 { focus-workspace 2; }
+    Super+3 { focus-workspace 3; }
+    Super+4 { focus-workspace 4; }
+    Super+5 { focus-workspace 5; }
+    Super+6 { focus-workspace 6; }
+    Super+7 { focus-workspace 7; }
+    Super+8 { focus-workspace 8; }
+    Super+9 { focus-workspace 9; }
+    Super+0 { focus-workspace 0; }
+    
+    Super+Shift+1 { move-column-to-workspace 1; }
+    Super+Shift+2 { move-column-to-workspace 2; }
+    Super+Shift+3 { move-column-to-workspace 3; }
+    Super+Shift+4 { move-column-to-workspace 4; }
+    Super+Shift+5 { move-column-to-workspace 5; }
+    Super+Shift+6 { move-column-to-workspace 6; }
+    Super+Shift+7 { move-column-to-workspace 7; }
+    Super+Shift+8 { move-column-to-workspace 8; }
+    Super+Shift+9 { move-column-to-workspace 9; }
+    Super+Shift+0 { move-column-to-workspace 0; }
+
+    // Important Hotkeys
+    Super+Shift+Slash { show-hotkey-overlay; }
+}

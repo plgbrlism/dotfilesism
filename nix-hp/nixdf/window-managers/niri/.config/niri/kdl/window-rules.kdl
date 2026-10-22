@@ -1,0 +1,22 @@
+// ~~ window rules ~~
+
+config-notification {
+    disable-failed
+}
+
+prefer-no-csd
+
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+    open-maximized true
+}
+    
+layer-rule {
+    place-within-backdrop true
+}
+
+hotkey-overlay {
+    skip-at-startup
+    hide-not-bound
+}
