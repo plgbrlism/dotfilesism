@@ -22,7 +22,7 @@ get_terminal_candidates() {
 
     if [ -n "$WAYLAND_DISPLAY" ]; then
         # Wayland terminal precedence preference
-        candidates=(kitty foot ghostty alacritty)
+        candidates=(foot kitty ghostty alacritty)
     elif [ -n "$DISPLAY" ]; then
         # X11 terminal precedence preference
         candidates=(kitty ghostty alacritty xterm)

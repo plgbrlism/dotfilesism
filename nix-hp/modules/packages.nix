@@ -9,6 +9,7 @@
     # Browsers & Communication
     firefox
     brave
+    google-chrome
     vesktop # discord for linux
 
     #  Media Players & Visualizers

@@ -1,7 +1,7 @@
 { config, ... }:
 
 let
-  dotfiles = "${config.home.homeDirectory}/dotfilesism/nix-hp/nixdf";
+  dotfiles = "${config.home.homeDirectory}/dotfilesism/nix-hp/nix-df";
 
   link = config.lib.file.mkOutOfStoreSymlink;
 in
@@ -18,6 +18,10 @@ in
     # terminals
     "kitty".source = link "${dotfiles}/terminal-emulator/kitty/.config/kitty";
     "foot".source = link "${dotfiles}/terminal-emulator/foot/.config/foot";
+
+    # shell-prompt
+    "starship".source = link "${dotfiles}/shell-prompt/starship/.config/starship/";
+    "starship.toml".source = link "${dotfiles}/shell-prompt/starship/.config/starship.toml";
 
     # editors
     "nvim".source = link "${dotfiles}/integrated-development-env/nvim/.config/nvim";
