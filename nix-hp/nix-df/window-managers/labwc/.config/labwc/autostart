@@ -1,0 +1,22 @@
+#!/bin/sh
+# ▄▄▄▀▀▀█                 ▀█▄▄▄▀█                                             
+#  █   █                   █   █                                              
+#  █ ░ █    ▄▀▀▒▀▀▄█▄▄▄▄▄  █ ░ █            ▀▄▄▄  █▄▀   ▄▄▄▀     ▀▄▄▄▀▀▀▄▄▄▄▄ 
+#  █░▒░█   █ ░ █   ░█▓██   █░▒░█           ██▓██  █▓██  ██▓██   ██▓██    █▀▓▀▌
+#  █▒▓▒█  █░▒░█    █▓▒▓█   █▒▓▒█░▀▀▀▀■▄   █▓▒▓     ▓▒▓█   ▓▒▓█ █▓▒▓       ▀▀▀ 
+#  █▓█▓░  █▒▓▒█    █▒░▒░   █▓█▓█   ░░▒ ░  █▒░▒▓   ▓▒░▒█  ▓▒░▒█ █▒░▒▓          
+#  █ ░ ▒  █▓█▓█    █░ ░▒   ██░█░   ▐▒▓░▌▌ █░ ░▓   ▓░ ░█  ▓░ ░█ █░ ░▓    █░██▄ 
+#  █░▒░▓   █░▒░ ▄ ▄█ ░ ▓  ▄█░▒░▒   ▓▓ ▓▓   █ ░▒▄ ▄▒░ ██▄▄▒░ █   █ ░▒ ▄▄░░▒░▓■ 
+#  █▀▀▀      ▀▀▀▀▀  ▀■▄█▄  ▀▀▀▀▄▄▄▀▀▀▀▄     ▀▄▄▄▄▄▄▄▀ ▀▄▄▄▄▀      ▀▀▀■▀▀▀▀▀   
+# ▀▀                                                                          
+#	 github: @plgbrlism
+#	 tiktok: @fuzzbuzz.tech
+#
+# labwc autostart. labwc runs this with sh, so it is split by sourcing
+# autostart.d/*.sh in alphabetical order. Each fragment backgrounds its daemon.
+
+# ~~ autostart.d ~~
+d="${XDG_CONFIG_HOME:-$HOME/.config}/labwc/autostart.d"
+for f in "$d"/*.sh; do
+	[ -r "$f" ] && . "$f"
+done

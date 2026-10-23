@@ -13,6 +13,10 @@ in
     # window managers
     "sway".source = link "${dotfiles}/window-managers/sway/.config/sway";
     "niri".source = link "${dotfiles}/window-managers/niri/.config/niri";
+    "wayfire".source = link "${dotfiles}/window-managers/wayfire/.config/wayfire";
+    "labwc".source = link "${dotfiles}/window-managers/labwc/.config/labwc";
+
+    # resolution handler
     "kanshi".source = link "${dotfiles}/monitor-management/kanshi/.config/kanshi";
 
     # terminals

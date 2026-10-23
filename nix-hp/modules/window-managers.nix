@@ -13,20 +13,34 @@
     };
     extraPackages = with pkgs; [
       swaybg
-      grim
-      wl-clipboard
     ];
   };
 
-  #  Niri Window Manager (Wayland Session)
+  #  Niri
   programs.niri.enable = true;
+
+  #  Wayfire
+  programs.wayfire = {
+    enable = true;
+    plugins = with pkgs.wayfirePlugins; [
+      wcm
+      wayfire-plugins-extra
+    ];
+  };
+
+  # Labwc
+  programs.labwc = {
+  	enable = true;
+  };
 
   #  Shared Session Utilities
   environment.systemPackages = [
     inputs.i3-qol.packages.${pkgs.system}.default
   ] ++ (with pkgs; [
+  	grim
+  	wl-clipboard
     brightnessctl
     libnotify
-    xwayland-satellite # XWayland for niri (anydesk etc)
+    xwayland-satellite #xwayland for niri
   ]);
 }

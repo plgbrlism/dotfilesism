@@ -1,0 +1,135 @@
+<?xml version="1.0"?>
+<!--
+  ▄▄▄▀▀▀█                 ▀█▄▄▄▀█                                             
+   █   █                   █   █                                              
+   █ ░ █    ▄▀▀▒▀▀▄█▄▄▄▄▄  █ ░ █            ▀▄▄▄  █▄▀   ▄▄▄▀     ▀▄▄▄▀▀▀▄▄▄▄▄ 
+   █░▒░█   █ ░ █   ░█▓██   █░▒░█           ██▓██  █▓██  ██▓██   ██▓██    █▀▓▀▌
+   █▒▓▒█  █░▒░█    █▓▒▓█   █▒▓▒█░▀▀▀▀■▄   █▓▒▓     ▓▒▓█   ▓▒▓█ █▓▒▓       ▀▀▀ 
+   █▓█▓░  █▒▓▒█    █▒░▒░   █▓█▓█   ░░▒ ░  █▒░▒▓   ▓▒░▒█  ▓▒░▒█ █▒░▒▓          
+   █ ░ ▒  █▓█▓█    █░ ░▒   ██░█░   ▐▒▓░▌▌ █░ ░▓   ▓░ ░█  ▓░ ░█ █░ ░▓    █░██▄ 
+   █░▒░▓   █░▒░ ▄ ▄█ ░ ▓  ▄█░▒░▒   ▓▓ ▓▓   █ ░▒▄ ▄▒░ ██▄▄▒░ █   █ ░▒ ▄▄░░▒░▓■ 
+   █▀▀▀      ▀▀▀▀▀  ▀■▄█▄  ▀▀▀▀▄▄▄▀▀▀▀▄     ▀▄▄▄▄▄▄▄▀ ▀▄▄▄▄▀      ▀▀▀■▀▀▀▀▀   
+  ▀▀                                                                          
+	 github: @plgbrlism
+	 tiktok: @fuzzbuzz.tech
+
+  labwc main config. Single monolithic XML: labwc has no XInclude support.
+  Everything here must stay in this file. Scripts/env are split elsewhere:
+  autostart (sources autostart.d/*.sh) and environment.d/*.env.
+-->
+<labwc_config>
+
+  <!-- ~~ appearance ~~ -->
+  <theme>
+    <name>Clearlooks-3.4</name>
+    <cornerRadius>12</cornerRadius>
+    <font name="JetBrainsMono Nerd Font" size="10" />
+  </theme>
+
+  <core>
+    <decoration>server</decoration>
+    <!-- sway: gaps inner 3 -->
+    <gap>3</gap>
+  </core>
+
+  <!-- ~~ desktops ~~ -->
+  <desktops>
+    <number>10</number>
+  </desktops>
+
+  <!-- ~~ keybindings ~~ -->
+  <keyboard>
+
+    <!-- ~~ apps ~~ -->
+    <keybind key="W-Return">
+      <action name="Execute" command="~/.local/bin/dispatch terminal" />
+    </keybind>
+    <keybind key="W-e">
+      <action name="Execute" command="~/.local/bin/dispatch file-manager" />
+    </keybind>
+    <keybind key="W-y">
+      <action name="Execute" command="~/.local/bin/dispatch terminal-fm" />
+    </keybind>
+
+    <!-- ~~ noctalia ~~ -->
+    <keybind key="W-r">
+      <action name="Execute" command="noctalia msg panel-toggle launcher" />
+    </keybind>
+    <keybind key="W-w">
+      <action name="Execute" command="noctalia msg panel-toggle wallpaper" />
+    </keybind>
+    <keybind key="W-Escape">
+      <action name="Execute" command="noctalia msg panel-toggle session" />
+    </keybind>
+    <keybind key="W-space">
+      <action name="Execute" command="noctalia msg panel-toggle control-center" />
+    </keybind>
+    <keybind key="A-Tab">
+      <action name="Execute" command="noctalia msg window-switcher" />
+    </keybind>
+
+    <!-- ~~ windows ~~ -->
+    <keybind key="W-c">
+      <action name="Close" />
+    </keybind>
+    <keybind key="W-f">
+      <action name="ToggleFullscreen" />
+    </keybind>
+    <keybind key="W-m">
+      <action name="Exit" />
+    </keybind>
+    <keybind key="W-S-e">
+      <action name="Reconfigure" />
+    </keybind>
+
+    <!-- ~~ workspaces ~~ -->
+    <keybind key="W-1"><action name="GoToDesktop" to="1" /></keybind>
+    <keybind key="W-2"><action name="GoToDesktop" to="2" /></keybind>
+    <keybind key="W-3"><action name="GoToDesktop" to="3" /></keybind>
+    <keybind key="W-4"><action name="GoToDesktop" to="4" /></keybind>
+    <keybind key="W-5"><action name="GoToDesktop" to="5" /></keybind>
+    <keybind key="W-6"><action name="GoToDesktop" to="6" /></keybind>
+    <keybind key="W-7"><action name="GoToDesktop" to="7" /></keybind>
+    <keybind key="W-8"><action name="GoToDesktop" to="8" /></keybind>
+    <keybind key="W-9"><action name="GoToDesktop" to="9" /></keybind>
+    <keybind key="W-0"><action name="GoToDesktop" to="10" /></keybind>
+
+    <keybind key="W-S-1"><action name="SendToDesktop" to="1" follow="no" /></keybind>
+    <keybind key="W-S-2"><action name="SendToDesktop" to="2" follow="no" /></keybind>
+    <keybind key="W-S-3"><action name="SendToDesktop" to="3" follow="no" /></keybind>
+    <keybind key="W-S-4"><action name="SendToDesktop" to="4" follow="no" /></keybind>
+    <keybind key="W-S-5"><action name="SendToDesktop" to="5" follow="no" /></keybind>
+    <keybind key="W-S-6"><action name="SendToDesktop" to="6" follow="no" /></keybind>
+    <keybind key="W-S-7"><action name="SendToDesktop" to="7" follow="no" /></keybind>
+    <keybind key="W-S-8"><action name="SendToDesktop" to="8" follow="no" /></keybind>
+    <keybind key="W-S-9"><action name="SendToDesktop" to="9" follow="no" /></keybind>
+    <keybind key="W-S-0"><action name="SendToDesktop" to="10" follow="no" /></keybind>
+
+    <!-- ~~ hardware ~~ -->
+    <keybind key="XF86AudioRaiseVolume">
+      <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ +5%" />
+    </keybind>
+    <keybind key="XF86AudioLowerVolume">
+      <action name="Execute" command="pactl set-sink-volume @DEFAULT_SINK@ -5%" />
+    </keybind>
+    <keybind key="XF86AudioMute">
+      <action name="Execute" command="pactl set-sink-mute @DEFAULT_SINK@ toggle" />
+    </keybind>
+    <keybind key="XF86MonBrightnessUp">
+      <action name="Execute" command="brightnessctl set +5%" />
+    </keybind>
+    <keybind key="XF86MonBrightnessDown">
+      <action name="Execute" command="brightnessctl set 5%-" />
+    </keybind>
+
+  </keyboard>
+
+  <!-- ~~ touchpad ~~ -->
+  <libinput>
+    <tap>yes</tap>
+    <tapButtonMap>lrm</tapButtonMap>
+    <disableWhileTyping>yes</disableWhileTyping>
+    <scrollFactor>0.9</scrollFactor>
+  </libinput>
+
+</labwc_config>

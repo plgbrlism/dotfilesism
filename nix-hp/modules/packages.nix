@@ -3,7 +3,7 @@
 
 {
   environment.systemPackages = [
-  	# Desktop Shell for niri+wayland
+  	# desktop shell for wayland
   	inputs.noctalia.packages.${pkgs.system}.default  	
   ] ++ (with pkgs; [
     # Browsers & Communication
