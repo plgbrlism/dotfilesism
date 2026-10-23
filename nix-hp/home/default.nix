@@ -13,7 +13,7 @@
     stateVersion = "26.05";
 
     sessionVariables = {
-      TERMINAL = "kitty";
+      TERMINAL = "foot";
       EDITOR = "nvim";
       VISUAL = "nvim";
     };

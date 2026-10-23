@@ -1,0 +1,2 @@
+#! /usr/bin/env sh
+rizzoo -i "$(noctalia msg wallpaper-get)" -ro && noctalia msg config-reload &

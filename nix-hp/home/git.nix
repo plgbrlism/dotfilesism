@@ -8,7 +8,7 @@
     userEmail = "fuzzbuzz@local.ph";
 
     settings = {
-      init.defaultBranch = "main";
+      init.defaultBranch = "master";
       pull.rebase = true;
       core.editor = "nvim";
       credential.helper = "cache --timeout=3600";

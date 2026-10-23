@@ -42,6 +42,7 @@
     glow
     systemctl-tui
     peaclock
+    gum
 
     # Downloaders & Archive Tools
     wget

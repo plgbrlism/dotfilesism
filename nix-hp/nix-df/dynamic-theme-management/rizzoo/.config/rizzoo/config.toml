@@ -58,6 +58,11 @@ output   = "~/.config/sway/colors/variants/dynamic.conf"
 template = "colors-niri-layout.kdl"
 output   = "~/.config/niri/kdl/layout.kdl"
 
+[labwc]
+template = "colors-labwc"
+output   = "~/.config/labwc/colors/variants/dynamicrc"
+post_hook = "labwc -r"
+
 # idk shi whaever
 [Xresources]
 template = "colors.Xresources"

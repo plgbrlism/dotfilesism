@@ -7,6 +7,7 @@ apps/cli/peaclock/.peaclock/history
 
 # rizzoo-generated outputs - regen via `rizzoo -r -o`, never track
 **/variants/dynamic.*
+**/variants/dynamicrc
 **/nvim/lua/rizzoo/palette.lua
 **/niri/kdl/layout.kdl
 **/qt5ct/colors/dynamic.conf
