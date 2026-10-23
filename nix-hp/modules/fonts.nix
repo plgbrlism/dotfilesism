@@ -4,7 +4,7 @@
   fonts = {
     enableDefaultPackages = true;
     packages = with pkgs; [
-      # Core & UI System Fonts
+      # core ui system fonts
       noto-fonts
       noto-fonts-color-emoji
       noto-fonts-cjk-sans
@@ -13,17 +13,17 @@
       freefont_ttf
       carlito
 
-      # Monospace & Developer Icon Fonts (Nerd Fonts v3)
+      # monospace & developer nerd fonts
       nerd-fonts.jetbrains-mono
       nerd-fonts.fira-code
       nerd-fonts.departure-mono
 
-      # Bitmap / Glyphs
+      # bitmap / glyphs
       unifont
       siji
     ];
 
-    # System-wide font configuration & fallbacks
+    # system-wide font configuration
     fontconfig = {
       enable = true;
       defaultFonts = {

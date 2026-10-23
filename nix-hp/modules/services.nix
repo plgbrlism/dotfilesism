@@ -4,7 +4,7 @@
   #  BLUETOOTH & SYSTEM DAEMONS
   hardware.bluetooth = {
     enable = false;
-    powerOnBoot = false; # Conserve battery on boot for Celeron laptop
+    powerOnBoot = false;
     settings = {
       General = {
         Enable = "Source,Sink,Media,Socket";
@@ -14,15 +14,14 @@
 
   services.blueman.enable = false;
 
-  # Firmware updater service
+  # firmware updater service
   services.fwupd.enable = false;
 
   #  D-BUS & STORAGE AUTOMOUNTING
   services.dbus.enable = true;
   services.udisks2.enable = false;
-  services.gvfs.enable = false; # Required for Nautilus trash/mount integration
-
-  # User-space Polkit authentication agent
+  services.gvfs.enable = false; # toggling ~/trash or mnt
+  # user-space polkit authentication agent
   security.polkit.enable = true;
 
   # secure shell

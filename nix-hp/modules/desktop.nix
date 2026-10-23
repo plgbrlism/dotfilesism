@@ -7,7 +7,7 @@
     xkb.layout = "us";
   };
 
-  # Lightweight TUI Display Manager
+  # lightweight tui display manager
   services.displayManager.ly = {
   	enable = true;
 	settings = {
@@ -23,7 +23,7 @@
     };
    };
 
-  # Touchpad support for HP Laptop
+  # touchpad support
   services.libinput = {
     enable = true;
     touchpad = {
@@ -48,7 +48,7 @@
     nwg-look
   ];
 
-  #  GDK PIXBUF SYSTEM LOADERS (Enables WebP/SVG/Thumbnails across apps)
+  #  GDK PIXBUF SYSTEM LOADERS
   programs.gdk-pixbuf.modulePackages = with pkgs; [
 	webp-pixbuf-loader
     librsvg

@@ -3,14 +3,14 @@
 {
   #  POWER MANAGEMENT
   # Automatic power tuning via Powertop system service
-  powerManagement.powertop.enable = true;
+  powerManagement.enable = true;
 
-  #  BATTERY MONITORING (for Noctalia)
+  #  BATTERY MONITORING
   services.upower.enable = true;
   environment.systemPackages = [ pkgs.upower ];
   
   #  MEMORY & SWAP COMPRESSION
-  # Helps maintain system responsiveness on 4GB RAM
+  # helps to maintain system responsiveness on 4GB RAM
   zramSwap = {
     enable = true;
     memoryPercent = 50;

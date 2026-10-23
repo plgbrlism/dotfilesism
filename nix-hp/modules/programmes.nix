@@ -12,7 +12,6 @@
   #  CLI & UTILITY PACKAGES
   environment.systemPackages = [
   	# my personal color palette generator
-	# lto off + more codegen units: 4gb hp ooms during fat lto
 	(inputs.rizzoo.packages.${pkgs.system}.default.overrideAttrs (old: {
 	  preBuild = (old.preBuild or "") + ''
 	    export CARGO_PROFILE_RELEASE_LTO=false
@@ -20,14 +19,14 @@
 	  '';
 	}))
   ] ++ (with pkgs; [
-    # Terminal Multiplexers & Editors
+    #  text editors and terminal multiplexer
     neovim
     micro
-    tmux
     vim
     nano
+    tmux
 
-    # CLI Navigation & Modern Coreutils
+    # cli navigation and modern coreutils
     fzf
     jq
     bat
@@ -44,19 +43,19 @@
     peaclock
     gum
 
-    # Downloaders & Archive Tools
+    # downloaders and archiver
     wget
     curl
     unzip
     p7zip
     man-db
 
-    # Terminal Screen Recording & ASCII Toys
+    # terminal screen recording
     vhs
     cmatrix
     figlet
 
-    # Build Tools, Compilers & Runtimes
+    # build tools, compilers and runtimes
     just
     rustup
     nodejs
@@ -69,9 +68,9 @@
     meson
     scdoc
 
-    # Shell Essentials (config lives in home/shell.nix)
+    # shell essentials (config lives in home/shell.nix)
 
-    # Libraries & Format Parsing Headers
+    # libraries and format parsing headers
     nlohmann_json
     tomlplusplus
     stb

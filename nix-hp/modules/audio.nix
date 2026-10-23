@@ -1,10 +1,10 @@
 { pkgs, ... }:
 
 {
-  # Realtime scheduling daemon for audio threads
+  # realtime scheduling daemon for audio threads
   security.rtkit.enable = true;
 
-  # PipeWire service configuration
+  # pipewire service configuration
   services.pipewire = {
     enable = true;
     alsa.enable = true;
@@ -14,7 +14,7 @@
     wireplumber.enable = true;
   };
 
-  # Audio mixer GUI
+  # audio mixer gui
   environment.systemPackages = with pkgs; [
     pavucontrol
     pulseaudio

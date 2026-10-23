@@ -21,11 +21,11 @@
     ../../modules/build.nix
   ];
 
-  # Hostname & State Version
+  # hostname and state version
   networking.hostName = "hp";
   system.stateVersion = "26.05";
 
-  # User Configuration
+  # user configuration
   users.users.paul = {
     isNormalUser = true;
     description = "paul";
@@ -39,19 +39,47 @@
   # fish login shell needs registering system-wide
   programs.fish.enable = true;
 
-  # Nix Package Manager & Flakes configuration
+  # nix package manager & flakes configuration
   nix.settings = {
     experimental-features = [ "nix-command" "flakes" ];
     trusted-users = [ "root" "paul" ];
     auto-optimise-store = true;
   };
 
-  # Allow Unfree Packages Globally
+  # allow unfree packages globally
   nixpkgs.config.allowUnfree = true;
 
-  # Time Zone & Locale Settings
+  # time zone & locale
   time.timeZone = "Asia/Manila";
   i18n.defaultLocale = "en_US.UTF-8";
 
+  # xdg-desktop environment
+	environment.etc."xdg/user-dirs.defaults".text = ''
+    DOWNLOAD=Downloads
+    DOCUMENTS=Documents
+    MUSIC=Music
+    PICTURES=Pictures
+    VIDEOS=Videos
+  '';
+
+  environment.etc."xdg/user-dirs.conf".text = ''
+    enabled=false
+  '';
+
+  environment.etc."xdg/user-dirs.dirs".text = ''
+    XDG_DOWNLOAD_DIR="$HOME/Downloads"
+    XDG_DOCUMENTS_DIR="$HOME/Documents"
+    XDG_MUSIC_DIR="$HOME/Music"
+    XDG_PICTURES_DIR="$HOME/Pictures"
+    XDG_VIDEOS_DIR="$HOME/Videos"
+  '';
+
+  system.activationScripts.cleanupXdgDirs = ''
+    for user_home in /home/*; do
+      if [ -d "$user_home" ]; then
+        rm -rf "$user_home/Public" "$user_home/Desktop" "$user_home/Templates" "$user_home/Projects"
+      fi
+    done
+  '';
   
 }

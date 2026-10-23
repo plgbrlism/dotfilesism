@@ -6,38 +6,38 @@
   	# desktop shell for wayland
   	inputs.noctalia.packages.${pkgs.system}.default  	
   ] ++ (with pkgs; [
-    # Browsers & Communication
+    # browsers / social
     firefox
     brave
     google-chrome
     vesktop # discord for linux
 
-    #  Media Players & Visualizers
+    #  media players
     mpv
     vlc
-    cava
-    lavat
 
-    #  Screen Capture & Recording
+    #  screen capture & recording
     gpu-screen-recorder
     gpu-screen-recorder-gtk
     peek
     
-    # Image utilities
+    # image utilities
     imagemagick
 
-    #  Office, Notes & Flashcards
+    # notes / flashcards / documents
     obsidian
     onlyoffice-desktopeditors
     anki-bin
-    bitwarden-desktop
-    anydesk # remote desktop (unfree, allowUnfree already set)
+    anydesk # remote desktop
 
-    #  Vector / Design & Mobile Tools
+	# password manager
+	bitwarden-desktop
+	
+    #  vector designer and mobile debloater gui
     inkscape
     universal-android-debloater
 
-    #  File Management & Thumbnails
+    #  file management and thumbnails
     nautilus
     tumbler
     ffmpegthumbnailer

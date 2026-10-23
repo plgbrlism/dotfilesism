@@ -4,10 +4,10 @@
   #  NETWORKING BACKEND
   networking.networkmanager = {
     enable = true;
-    wifi.backend = "iwd"; # Fast, lightweight wireless backend
+    wifi.backend = "iwd"; # more modern
   };
 
-  # Use the standard wireless daemon
+  # use the standard wireless daemon
   networking.wireless.iwd.enable = true;
 
   #  FIREWALL CONFIGURATION

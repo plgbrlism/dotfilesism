@@ -5,7 +5,7 @@
   boot.loader = {
     systemd-boot = {
       enable = true;
-      configurationLimit = 3; # Prevents /boot from filling up with old generations
+      configurationLimit = 3;
     };
     efi.canTouchEfiVariables = true;
   };
@@ -18,9 +18,7 @@
     "acpi_sleep=nonvs"
   ];
 
-  # Stable LTS Kernel for Celeron N4000
+  # stable LTS lernel for Celeron N4000
   boot.kernelPackages = pkgs.linuxPackages;
-
-  # Enable Plymouth boot splash if desired, or keep boot log clean
   boot.consoleLogLevel = 3;
 }

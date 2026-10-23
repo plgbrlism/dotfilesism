@@ -48,7 +48,7 @@
         # Main host configuration
         ./hosts/hp/configuration.nix
 
-        # Home Manager integration module
+        # home manager integration module
         home-manager.nixosModules.home-manager
         {
           home-manager = {

@@ -7,7 +7,7 @@ let
 in
 {
   xdg.configFile = {
-    # desktop shell (own copy under nix-df)
+    # desktop shell
     "noctalia".source = link "${dotfiles}/wayland-desktop-shell/noctalia/.config/noctalia";
 
     # window managers
@@ -41,7 +41,7 @@ in
   };
 
   home.file = {
-    # wm helper, spawned by sway apps.conf and niri keybinds
+    # wm helper
     ".local/bin/dispatch".source = link "${dotfiles}/window-managers/helper-script/dispatcher/.local/bin/dispatch";
     ".xinitrc".source = link "${dotfiles}/shell-startup/dot-xinitrc/.xinitrc";
   };

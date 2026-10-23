@@ -33,7 +33,7 @@
   	enable = true;
   };
 
-  #  Shared Session Utilities
+  #  shared session utilities
   environment.systemPackages = [
     inputs.i3-qol.packages.${pkgs.system}.default
   ] ++ (with pkgs; [
