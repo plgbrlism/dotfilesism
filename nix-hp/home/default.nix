@@ -25,9 +25,9 @@
 
       # qt theming (qt5 kept for legacy apps)
       libsForQt5.qt5ct
-      libsForQt5.kvantum
+      libsForQt5.qtstyleplugin-kvantum
       qt6Packages.qt6ct
-      qt6Packages.kvantum
+      qt6Packages.qtstyleplugin-kvantum
     ];
   };
 

@@ -153,18 +153,22 @@
       }
     },
     "opencode": {
+      "inputs": {
+        "nixpkgs": [
+          "nixpkgs"
+        ]
+      },
       "locked": {
-        "lastModified": 1792506237,
-        "narHash": "sha256-Q/8KLB6jNfpaUN1HAedE/u/Et9feE/zYSsutBLKrCFk=",
-        "owner": "NixOS",
-        "repo": "nixpkgs",
-        "rev": "5adc50831c259f87faeb09ddf930d43597197473",
+        "lastModified": 1792689474,
+        "narHash": "sha256-v/tyDjMwbbH6z3s6FKMkb40E0QBijh72Vv9gPjyQ+fg=",
+        "owner": "jerryfound",
+        "repo": "opencode-cli-nix",
+        "rev": "a2164f7d7e3e872040ef0635924eaa43dac0e56c",
         "type": "github"
       },
       "original": {
-        "owner": "NixOS",
-        "ref": "nixpkgs-unstable",
-        "repo": "nixpkgs",
+        "owner": "jerryfound",
+        "repo": "opencode-cli-nix",
         "type": "github"
       }
     },

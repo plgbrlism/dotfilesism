@@ -18,7 +18,6 @@
 	    export CARGO_PROFILE_RELEASE_CODEGEN_UNITS=16
 	  '';
 	}))
-
 	# ai coding agent
 	(inputs.opencode.packages.${pkgs.system}.default)
   ] ++ (with pkgs; [
