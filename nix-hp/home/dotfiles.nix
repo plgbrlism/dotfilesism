@@ -31,6 +31,11 @@ in
     "nvim".source = link "${dotfiles}/integrated-development-env/nvim/.config/nvim";
     "micro".source = link "${dotfiles}/text-editor/micro/.config/micro";
 
+    # system themes (qt)
+    "qt5ct".source = link "${dotfiles}/system-themes/qt/qt5/.config/qt5ct";
+    "qt6ct".source = link "${dotfiles}/system-themes/qt/qt6/.config/qt6ct";
+    "Kvantum".source = link "${dotfiles}/system-themes/qt/kvantum/.config/Kvantum";
+
     # cli tools
     "fastfetch".source = link "${dotfiles}/system-monitor/fastfetch/.config/fastfetch";
     "rizzoo".source = link "${dotfiles}/dynamic-theme-management/rizzoo/.config/rizzoo";

@@ -86,8 +86,8 @@ output   = "~/projects/anki-mcq-builder/static/_theme.css"
 # gtk mac-tahoe theme
 [mac-colors]
 template = "mac-colors.scss"
-output   = "~/dotfilesism/arch-dell/system-themes/gtk/mac-tahoe/MacTahoe-gtk-theme/src/sass/_colors.scss"
-post_hook = "~/dotfilesism/arch-dell/system-themes/gtk/mac-tahoe/reload.sh"
+output   = "~/dotfilesism/nix-hp/nix-df/system-themes/gtk/mac-tahoe/MacTahoe-gtk-theme/src/sass/_colors.scss"
+post_hook = "~/dotfilesism/nix-hp/nix-df/system-themes/gtk/mac-tahoe/reload.sh"
 
 # qt theme
 [qt5ct]

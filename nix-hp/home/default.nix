@@ -16,11 +16,18 @@
       TERMINAL = "foot";
       EDITOR = "nvim";
       VISUAL = "nvim";
+      QT_QPA_PLATFORMTHEME = "qt6ct";
     };
 
     packages = with pkgs; [
       foot
       kitty
+
+      # qt theming (qt5 kept for legacy apps)
+      libsForQt5.qt5ct
+      libsForQt5.kvantum
+      qt6Packages.qt6ct
+      qt6Packages.kvantum
     ];
   };
 
