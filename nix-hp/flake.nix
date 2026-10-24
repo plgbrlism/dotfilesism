@@ -39,10 +39,10 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    # opencode
+    # ai coding agent - prebuilt npm binary, nixpkgs' bun build SIGKILLs on hp
     opencode = {
-    	url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-    	inputs.nixpkgs.follows = "nixpkgs";
+      url = "github:jerryfound/opencode-cli-nix";
+      inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 

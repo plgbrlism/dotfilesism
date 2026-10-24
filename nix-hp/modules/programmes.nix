@@ -18,6 +18,9 @@
 	    export CARGO_PROFILE_RELEASE_CODEGEN_UNITS=16
 	  '';
 	}))
+
+	# ai coding agent
+	(inputs.opencode.packages.${pkgs.system}.default)
   ] ++ (with pkgs; [
     #  text editors and terminal multiplexer
     neovim
@@ -27,9 +30,6 @@
     zed-editor
     tmux
 
-	# ai coding agent
-	# opencode 
-		
     # cli navigation and modern coreutils
     fzf
     jq
