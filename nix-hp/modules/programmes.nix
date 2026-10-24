@@ -77,6 +77,9 @@
 
     # libraries and format parsing headers
     glib
+    # theme install scripts look for glib-compile-resources and xmllint on PATH
+    glib.dev
+    libxml2
     nlohmann_json
     tomlplusplus
     stb

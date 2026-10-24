@@ -24,6 +24,17 @@ ensure_clone() {
     || git clone "https://github.com/${repo%.git}" "$dir"
 }
 
+# the bundled gnome-theme-switcher is a python script with a /usr/bin/python3
+# shebang, so it can't run on nixos; never install it. re-applied on every run
+# because the source tree is a git clone that gets pulled.
+patch_install() {
+  local f="$1/install.sh"
+  if [ -f "$f" ] && grep -q '^  install_app$' "$f"; then
+    sed -i 's|^  install_app$|  # install_app skipped: NixOS-managed, bundled copy is broken on NixOS|' "$f"
+    echo "Note: patched out gnome-theme-switcher auto-install."
+  fi
+}
+
 install_core() {
   local entry="$1" dir repo reload
   dir="$GTK_ROOT/$(echo "$entry" | cut -d'|' -f2)"
@@ -31,6 +42,7 @@ install_core() {
   reload="$GTK_ROOT/$(echo "$entry" | cut -d'|' -f4)"
 
   ensure_clone "$dir" "$repo"
+  patch_install "$dir"
   bash "$reload"
 }
 
