@@ -38,6 +38,12 @@
       url = "git+https://github.com/plgbrlism/rizzoo.git?ref=refs/tags/0.7.4";
       inputs.nixpkgs.follows = "nixpkgs";
     };
+
+    # opencode
+    opencode = {
+    	url = "github:NixOS/nixpkgs/nixpkgs-unstable";
+    	inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
   outputs = { self, nixpkgs, home-manager, nixos-hardware, swayfx, scenefx, ... } @ inputs: {

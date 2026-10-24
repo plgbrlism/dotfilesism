@@ -28,7 +28,7 @@
     tmux
 
 	# ai coding agent
-	opencode 
+	# opencode 
 		
     # cli navigation and modern coreutils
     fzf
