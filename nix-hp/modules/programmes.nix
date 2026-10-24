@@ -76,6 +76,7 @@
     # shell essentials (config lives in home/shell.nix)
 
     # libraries and format parsing headers
+    glib
     nlohmann_json
     tomlplusplus
     stb
