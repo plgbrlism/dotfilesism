@@ -63,6 +63,12 @@
     <keybind key="W-space">
       <action name="Execute" command="noctalia msg panel-toggle control-center" />
     </keybind>
+	<keybind key="Print">
+      <action name="Execute" command="noctalia msg screenshot-fullscreen" />
+    </keybind>
+    <keybind key="S-Print">
+      <action name="Execute" command="noctalia msg screenshot-region" />
+    </keybind>
  
     <!-- ~~ windows ~~ -->
     <keybind key="W-c">

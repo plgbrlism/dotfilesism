@@ -35,9 +35,6 @@ in
     "fastfetch".source = link "${dotfiles}/system-monitor/fastfetch/.config/fastfetch";
     "rizzoo".source = link "${dotfiles}/dynamic-theme-management/rizzoo/.config/rizzoo";
     "yazi".source = link "${dotfiles}/file-management/yazi/.config/yazi";
-
-    # services
-    "xdg-desktop-portal".source = link "${dotfiles}/xdg-desktop-portal-management/xdg-desktop-portal/.config/xdg-desktop-portal";
   };
 
   home.file = {

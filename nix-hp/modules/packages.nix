@@ -7,7 +7,6 @@
   	inputs.noctalia.packages.${pkgs.system}.default  	
   ] ++ (with pkgs; [
     # browsers / social
-    firefox
     brave
     google-chrome
     vesktop # discord for linux

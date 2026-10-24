@@ -11,21 +11,22 @@
   programs.fish = {
     enable = true;
 
-    # run fastfetch on interactive shell start
+    # fastfetch
     interactiveShellInit = ''
+      set -g fish_greeting ""
       if status is-interactive
         fastfetch
       end
     '';
   };
 
-  # Modern Starship Prompt
+  # starship prompt
   programs.starship = {
     enable = true;
     enableFishIntegration = true;
   };
 
-  # Atuin — shell history sync
+  # atuin shell history sync
   programs.atuin = {
     enable = true;
     enableFishIntegration = true;

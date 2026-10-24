@@ -53,8 +53,8 @@
   time.timeZone = "Asia/Manila";
   i18n.defaultLocale = "en_US.UTF-8";
 
-  # xdg-desktop environment
-	environment.etc."xdg/user-dirs.defaults".text = ''
+  # xdg-desktop environment system defaults
+  environment.etc."xdg/user-dirs.defaults".text = ''
     DOWNLOAD=Downloads
     DOCUMENTS=Documents
     MUSIC=Music
@@ -66,20 +66,22 @@
     enabled=false
   '';
 
-  environment.etc."xdg/user-dirs.dirs".text = ''
-    XDG_DOWNLOAD_DIR="$HOME/Downloads"
-    XDG_DOCUMENTS_DIR="$HOME/Documents"
-    XDG_MUSIC_DIR="$HOME/Music"
-    XDG_PICTURES_DIR="$HOME/Pictures"
-    XDG_VIDEOS_DIR="$HOME/Videos"
-  '';
-
-  system.activationScripts.cleanupXdgDirs = ''
-    for user_home in /home/*; do
-      if [ -d "$user_home" ]; then
-        rm -rf "$user_home/Public" "$user_home/Desktop" "$user_home/Templates" "$user_home/Projects"
-      fi
-    done
-  '';
+  # xdg-desktop portals configuration
+  xdg.portal = {
+    enable = true;
+    extraPortals = with pkgs; [
+      xdg-desktop-portal-wlr
+      xdg-desktop-portal-gtk
+    ];
+    config = {
+      common = {
+        "org.freedesktop.impl.portal.Camera" = "gtk";
+        "org.freedesktop.impl.portal.Access" = "gtk";
+        "org.freedesktop.impl.portal.FileDialog" = "gtk";
+        "org.freedesktop.impl.portal.AppChooser" = "gtk";
+        "org.freedesktop.impl.portal.Settings" = "gtk";
+      };
+    };
+  };
   
 }

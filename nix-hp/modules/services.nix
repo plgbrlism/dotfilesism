@@ -1,9 +1,9 @@
-{ pkgs, ... }:
+{ pkgs, lib, ... }:
 
 {
   #  BLUETOOTH & SYSTEM DAEMONS
   hardware.bluetooth = {
-    enable = false;
+    enable = true;
     powerOnBoot = false;
     settings = {
       General = {
@@ -12,18 +12,18 @@
     };
   };
 
-  services.blueman.enable = false;
+  services.blueman.enable = true;
 
   # firmware updater service
   services.fwupd.enable = false;
 
   #  D-BUS & STORAGE AUTOMOUNTING
   services.dbus.enable = true;
-  services.udisks2.enable = false;
-  services.gvfs.enable = false; # toggling ~/trash or mnt
+  services.udisks2.enable = lib.mkForce false; # currently off, for mounting
+  services.gvfs.enable = true;
   # user-space polkit authentication agent
   security.polkit.enable = true;
 
-  # secure shell
+  # SSH
   services.openssh.enable = true;
 }

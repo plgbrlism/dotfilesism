@@ -24,8 +24,12 @@
     micro
     vim
     nano
+    zed-editor
     tmux
 
+	# ai coding agent
+	opencode 
+		
     # cli navigation and modern coreutils
     fzf
     jq
@@ -42,6 +46,8 @@
     systemctl-tui
     peaclock
     gum
+
+    usbutils
 
     # downloaders and archiver
     wget

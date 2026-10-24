@@ -63,9 +63,9 @@ template = "colors-labwc"
 output   = "~/.config/labwc/colors/variants/dynamicrc"
 post_hook = "labwc -r"
 
-# idk shi whaever
+# idk shi tty thingy
 [Xresources]
-template = "colors.Xresources"
+template = "colors-Xresources"
 output   = "~/xresources/variants/dynamic"
 
 # shell prompt
