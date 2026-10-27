@@ -4,7 +4,7 @@
 # only has effect on a real TTY (not a terminal emulator, probably).
 
 if [ "$TERM" = "linux" ]; then
-    printf '\e]P0{{ background:hex_raw }}'
+    printf '\e]P0{{ surface:hex_raw }}'
     printf '\e]P1{{ error:hex_raw }}'
     printf '\e]P2{{ primary:hex_raw }}'
     printf '\e]P3{{ secondary:hex_raw }}'

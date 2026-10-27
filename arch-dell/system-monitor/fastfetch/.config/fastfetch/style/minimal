@@ -7,7 +7,7 @@
     	"3": "35 ",
     	},
     "type": "auto",   // use distro logo or "none" if you want it blank
-    "source": "~/.config/fastfetch/custom/paul",
+    "source": "~/.config/fastfetch/custom/vellum",
     //"source": "none",
     "position": "top",
     "padding": {
@@ -23,10 +23,6 @@
     }
   },
   "modules": [
-    {
-      "format": " ",
-      "type": "custom",
-    },
     {
       "key": "   usr    ",
       "type": "title",
@@ -62,25 +58,11 @@
       "keyColor": "35"   // magenta
     },
     {
-      "key": " 󰏖  pkg     ",
-      "type": "packages",
-      "keyColor": "34"   // red again
-    },
-    {
       "key": "   ram ",
       "type": "memory",
       "format": "{used} / {total}",
-      "keyColor": "36"   // yellow
+      "keyColor": "34"   // red
     },
-    {
-      "key": "   clrs     {#36}󱑽{#} {#31}{#} {#32}󰽥{#} {#33}󰖝{#} {#34}{#} {#35}{#} {#36}󰈸{#}",
-      "type": "custom",
-      "keyColor": "35" 
-    },
-    {
-      "format": " ",
-      "type": "custom",
-    }
   ]
 }
 

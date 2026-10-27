@@ -74,5 +74,5 @@ abbr -a vault-close mega-quit
 abbr -a omniroute /home/paul/apps/omniroute/node_modules/.bin/omniroute
 
 # myprojhelpers
-abbr -a py-anki-mcq-builder "source ~/projects/anki-mcq-builder/.venv/bin/activate"
+abbr -a py-anki-mcq-builder "source ~/projects/anki-mcq-builder/.venv/bin/activate.fish"
 abbr -a image-curate "$HOME/scripts/images-curator/.venv/bin/python $HOME/scripts/images-curator/img-curate.py"

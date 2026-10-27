@@ -29,8 +29,8 @@
   --m3-inverse-surface: {{ inverse_surface }};
   --m3-inverse-on-surface: {{ inverse_on_surface }};
   --m3-inverse-primary: {{ inverse_primary }};
-  --m3-background: {{ background }};
-  --m3-on-background: {{ on_background }};
+  --m3-background: {{ surface }};
+  --m3-on-background: {{ on_surface }};
 
   /* animations */
   --m3-motion-emphasized: cubic-bezier(0.2, 0, 0, 1);

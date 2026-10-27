@@ -58,11 +58,6 @@ output   = "~/.config/sway/colors/variants/dynamic.conf"
 template = "colors-niri-layout.kdl"
 output   = "~/.config/niri/kdl/layout.kdl"
 
-# idk shi whaever
-[Xresources]
-template = "colors.Xresources"
-output   = "~/xresources/variants/dynamic"
-
 # shell prompt
 [starship]
 template = "colors-starship-tyn.toml"
