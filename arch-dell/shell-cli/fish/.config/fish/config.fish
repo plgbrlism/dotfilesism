@@ -1,5 +1,10 @@
 # ~/.config/fish/config.fish
 
+# ~~ color theme for tty ~~
+if test "$TERM" = linux; and test -f $HOME/.cache/rizzoo/colors-tty.sh
+    bash $HOME/.cache/rizzoo/colors-tty.sh
+end
+
 # ~~ welcome message ~~
 set -g fish_greeting
 if type -q fastfetch
