@@ -68,6 +68,10 @@ output   = "~/.config/starship/variants/dynamic.toml"
 template = "colors-noctalia.json"
 output   = "~/.config/noctalia/palettes/rizzoo.json"
 
+[noctalia-sway]
+template = "colors-noctalia-sway.json"
+output   = "~/.config/noctalia-sway/noctalia/palettes/rizzoo.json" 
+
 # mcq card builder (personal)
 [anki-cards]
 template = "mcq-anki.css"
