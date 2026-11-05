@@ -11,6 +11,7 @@ enable_sounds = false
 enable_volume_sounds = true
 sound_theme = "freedesktop"
 sound_volume = 0.5
+spectrum_frame_rate = 60
 
 [backdrop]
 blur_intensity = 1.0
@@ -23,90 +24,69 @@ order = [ "zwam" ]
     [bar.zwam]
     auto_hide = false
     auto_hide_delay_ms = 0
-    background_opacity = 1.0
-    border = "outline_variant"
+    background_opacity = 0.0
+    border = "primary"
     border_width = 0.0
-    capsule = true
+    capsule = false
     capsule_border_width = 1.0
     capsule_fill = "surface_container"
     capsule_opacity = 1.0
     capsule_padding = 12.0
     capsule_thickness = 0.75999999046325684
-    center = []
+    center = [ "group:g3" ]
     compositor_blur = true
-    concave_edge_corners = true
+    concave_edge_corners = false
     contact_shadow = false
     enabled = true
-    end = [ "tray", "group:g2", "group:g1" ]
+    end = []
     font_scale = 1.0
-    font_weight = 500
+    font_weight = 600
     hover_highlight = true
     icon_color = "primary"
     layer = "top"
     margin_edge = 0
-    margin_ends = 100
+    margin_ends = 300
     margin_opposite_edge = 0
     padding = 14
     panel_overlap = 1
-    position = "left"
-    radius = 28
-    radius_bottom_left = 15
-    radius_bottom_right = 20
-    radius_top_left = 15
-    radius_top_right = 20
+    position = "top"
+    radius = 0
+    radius_bottom_left = 0
+    radius_bottom_right = 0
+    radius_top_left = 0
+    radius_top_right = 0
     reserve_space = true
     scale = 1.0
     shadow = false
     show_on_workspace_switch = true
-    show_tooltip = true
+    show_tooltip = false
     smart_auto_hide = false
-    start = [ "control-center", "group:g3" ]
-    thickness = 34
+    start = []
+    thickness = 35
     widget_spacing = 6
 
         [bar.zwam.dead_zone]
+        click_through = false
 
         [[bar.zwam.capsule_group]]
         accordion = false
         accordion_direction = "end"
         border_width = 1.0
         enabled = true
-        fill = "surface_variant"
-        id = "g1"
-        members = [ "battery", "cpu" ]
-        opacity = 1.0
-        padding = 8.0
-        radius = 14.0
-        widget_spacing = 20
-
-        [[bar.zwam.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        border_width = 1.0
-        enabled = true
-        fill = "surface_variant"
-        id = "g2"
-        members = [ "volume", "brightness" ]
-        opacity = 1.0
-        padding = 8.0
-        radius = 14.0
-        widget_spacing = 14
-
-        [[bar.zwam.capsule_group]]
-        accordion = false
-        accordion_direction = "end"
-        border_width = 1.0
-        enabled = true
-        fill = "surface_variant"
+        fill = "surface"
         id = "g3"
-        members = [ "launcher", "workspaces" ]
+        members = [ "control-center", "launcher", "workspaces", "tray", "battery" ]
         opacity = 1.0
         padding = 8.0
         radius = 14.0
-        widget_spacing = 20
+        widget_spacing = 30
 
 [battery]
 warning_threshold = 10
+
+[bluetooth]
+connect_when_enabled = false
+connection_notifications = false
 
 [brightness]
 enable_ddcutil = false
@@ -129,16 +109,24 @@ refresh_minutes = 15
     use_event_reminders = true
 
 [control_center]
-hidden_tabs = [ "media", "weather", "calendar" ]
+circular_avatar = true
+hidden_tabs = [ "media", "weather", "calendar", "screen-time" ]
+show_avatar_border = false
 show_session_button = true
-show_shortcut_labels = true
+show_shortcut_labels = false
 sidebar = "compact"
-sidebar_section = "compact"
-width = 720
+sidebar_section = "none"
+width = 690
 
     [control_center.calendar]
+    hide_past_events = false
+    past_events_threshold_minutes = 30
     show_events_card = false
+    show_events_location = false
     show_week_numbers = false
+
+    [control_center.media]
+    show_visualizer = false
 
     [[control_center.shortcuts]]
     type = "wifi"
@@ -169,6 +157,7 @@ auto_hide = false
 background_opacity = 0.87999999523162842
 border = "outline_variant"
 border_width = 0.0
+compositor_blur = true
 concave_edge_corners = true
 cross_axis_padding = 8
 enabled = false
@@ -216,7 +205,9 @@ session_unlocked = []
 shutting_down = []
 started = []
 theme_mode_changed = []
-wallpaper_changed = [ "rizzoo -i \"$(noctalia msg wallpaper-get)\" -ro && noctalia msg config-reload &" ]
+wallpaper_changed = [
+    "$HOME/dotfilesism/arch-dell/wayland-desktop-shell/noctalia-sway/.config/noctalia-sway/noctalia/hooks/on-wallpaper-change.sh"
+]
 wifi_disabled = []
 wifi_enabled = []
 
@@ -306,38 +297,27 @@ wallpaper = ""
 [lockscreen_widgets]
 enabled = true
 schema_version = 2
-widget_order = [
-    "lockscreen-login-box@NOOP-1",
-    "lockscreen-login-box@eDP-1",
-    "lockscreen-widget-0000000000000001",
-    "lockscreen-widget-0000000000000003",
-    "lockscreen-widget-0000000000000004",
-    "lockscreen-widget-0000000000000005",
-    "lockscreen-widget-0000000000000006",
-    "lockscreen-widget-0000000000000007",
-    "lockscreen-widget-0000000000000008",
-    "lockscreen-widget-0000000000000009"
-]
+widget_order = [ "lockscreen-login-box@eDP-1" ]
 
     [lockscreen_widgets.grid]
     cell_size = 16
     major_interval = 4
     visible = true
 
-    [lockscreen_widgets.widget."lockscreen-login-box@NOOP-1"]
+    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
     box_height = 196.0
     box_width = 810.0
-    cx = 640.0
-    cy = 538.0
+    cx = 683.0
+    cy = 586.0
     enabled = true
-    output = "NOOP-1"
-    placement_height = 720.0
-    placement_width = 1280.0
+    output = "eDP-1"
+    placement_height = 768.0
+    placement_width = 1366.0
     rotation = 0.0
     type = "login_box"
 
-        [lockscreen_widgets.widget."lockscreen-login-box@NOOP-1".settings]
-        background_color = "surface_variant"
+        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
+        background_color = "surface_container"
         background_opacity = 0.88
         background_radius = 12.0
         center_password_text = false
@@ -348,172 +328,10 @@ widget_order = [
         show_keyboard_layout = true
         show_login_button = true
         show_media = true
+        show_password_reveal = true
         show_session_buttons = true
         show_unlock_hint = true
         show_weather = true
-
-    [lockscreen_widgets.widget."lockscreen-login-box@eDP-1"]
-    box_height = 70.0
-    box_width = 240.0
-    cx = 1131.0
-    cy = 669.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "login_box"
-
-        [lockscreen_widgets.widget."lockscreen-login-box@eDP-1".settings]
-        background_color = "surface_variant"
-        background_opacity = 0.88
-        background_radius = 12.0
-        center_password_text = false
-        input_opacity = 1.0
-        input_radius = 6.0
-        layout = "compact"
-        show_caps_lock = true
-        show_keyboard_layout = true
-        show_login_button = true
-        show_media = true
-        show_session_buttons = true
-        show_unlock_hint = true
-        show_weather = true
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000001]
-    box_height = 96.0
-    box_width = 240.0
-    cx = 1131.0
-    cy = 528.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "clock"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000001.settings]
-        background = true
-        clock_style = "digital"
-        color = "primary"
-        font_family = "DepartureMono Nerd Font"
-        timezone = ""
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000003]
-    box_height = 224.0
-    box_width = 240.0
-    cx = 890.06640625
-    cy = 588.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "sticker"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000003.settings]
-        background = false
-        image_path = "/home/paul/Pictures/icons/a_man_with_blue_eyes_and_a_black_shirt.webp"
-        opacity = 1.0
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000004]
-    box_height = 256.0
-    box_width = 240.0
-    cx = 1131.0
-    cy = 256.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "media_player"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000004.settings]
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000005]
-    box_height = 64.0
-    box_width = 480.0
-    cx = 1010.06640625
-    cy = 432.0
-    enabled = true
-    flip_y = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "audio_visualizer"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000005.settings]
-        bands = 128
-        show_when_idle = true
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000006]
-    box_height = 64.0
-    box_width = 176.0
-    cx = 683.0
-    cy = 666.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000006.settings]
-        display = "gauge"
-        stat = "cpu_usage"
-        stat2 = "ram_pct"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000007]
-    box_height = 64.0
-    box_width = 176.0
-    cx = 683.0
-    cy = 592.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000007.settings]
-        display = "gauge"
-        stat = "ram_pct"
-        stat2 = "cpu_temp"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000008]
-    box_height = 64.0
-    box_width = 176.0
-    cx = 491.0
-    cy = 666.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "sysmon"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000008.settings]
-        display = "gauge"
-        stat = "cpu_temp"
-        stat2 = "cpu_temp"
-
-    [lockscreen_widgets.widget.lockscreen-widget-0000000000000009]
-    box_height = 80.0
-    box_width = 224.0
-    cx = 882.06640625
-    cy = 344.0
-    enabled = true
-    output = "eDP-1"
-    placement_height = 768.0
-    placement_width = 1366.0
-    rotation = 0.0
-    type = "clock"
-
-        [lockscreen_widgets.widget.lockscreen-widget-0000000000000009.settings]
-        color = "secondary"
-        font_family = "DepartureMono Nerd Font"
-        format = "{:%a}"
 
 [nightlight]
 enabled = true
@@ -523,12 +341,12 @@ temperature_night = 4000
 
 [notification]
 background_opacity = 0.97000002861022949
-border = true
+border = false
 border_color = "tertiary"
-border_width = 1.0
+border_width = 0.0
 collapse_on_dismiss = true
 enable_daemon = true
-follow_focused_output = false
+follow_focused_output = true
 history_retention_hours = 0
 keep_dismissed_in_history = false
 layer = "top"
@@ -548,7 +366,7 @@ border = false
 border_color = "tertiary"
 border_width = 1.0
 enabled = true
-follow_focused_output = false
+follow_focused_output = true
 hide_delay_ms = 1400
 monitors = []
 offset_x = 20
@@ -562,11 +380,13 @@ scale = 1.0
     bluetooth = true
     brightness = true
     caffeine = false
+    custom = true
     dnd = false
     keyboard_backlight = true
     keyboard_layout = true
     lock_keys = true
     media = true
+    media_volume = true
     nightlight = true
     power_profile = false
     privacy = true
@@ -613,6 +433,7 @@ input_borders = false
 lang = "en"
 launch_apps_as_systemd_services = false
 launch_apps_custom_command = ""
+niri_overview_close_on_launch_enabled = false
 niri_overview_type_to_launch_enabled = false
 offline_mode = false
 password_style = "random"
@@ -623,13 +444,15 @@ readline_shortcuts = false
 screen_time_enabled = false
 settings_expand_all_groups = false
 settings_show_advanced = true
-settings_window_translucent = false
+settings_window_translucent = true
 setup_wizard_enabled = true
 shared_gl_context = true
 show_close_buttons = true
 show_location = true
 telemetry_enabled = false
 time_format = "{:%I:%M %p}"
+umbriel_audio_provider_enabled = false
+umbriel_overview_close_on_launch_enabled = false
 umbriel_overview_type_to_launch_enabled = false
 
     [shell.animation]
@@ -643,12 +466,13 @@ umbriel_overview_type_to_launch_enabled = false
 
     [shell.launcher]
     app_grid = false
-    auto_paste = "auto"
+    auto_paste = "off"
     categories = false
     category_icons_only = false
     compact = false
     default_view = "recent"
-    fetch_exchange_rates = true
+    fetch_exchange_rates = false
+    ignore_mouse = false
     layout = "simple"
     pinned = []
     provider_prefix = "/"
@@ -656,6 +480,7 @@ umbriel_overview_type_to_launch_enabled = false
     show_app_actions = false
     show_app_origin_indicator = true
     show_icons = true
+    show_navigation_labels = true
     show_session_button = true
     show_settings_button = true
     sort_by_usage = true
@@ -675,12 +500,12 @@ umbriel_overview_type_to_launch_enabled = false
 
     [shell.panel]
     border_color = "outline_variant"
-    border_width = 3.0
+    border_width = 0.0
     borders = false
     clipboard_placement = "floating"
     clipboard_position = "center"
     control_center_placement = "attached"
-    control_center_position = "auto"
+    control_center_position = "bottom_center"
     floating_layer = "overlay"
     floating_offset = 8
     launcher_placement = "floating"
@@ -694,7 +519,7 @@ umbriel_overview_type_to_launch_enabled = false
     polkit_placement = "floating"
     polkit_position = "top_center"
     session_placement = "attached"
-    session_position = "auto"
+    session_position = "center"
     shadow = false
     transparency_mode = "solid"
     wallpaper_placement = "floating"
@@ -707,7 +532,7 @@ umbriel_overview_type_to_launch_enabled = false
     screen_filter_regex = ""
 
     [shell.screen_corners]
-    enabled = true
+    enabled = false
     size = 38
 
     [shell.screenshot]
@@ -715,16 +540,23 @@ umbriel_overview_type_to_launch_enabled = false
     close_on_copy = true
     close_on_save = true
     confirm_region = true
+    copy_on_close = false
     copy_to_clipboard = true
     directory = "/home/paul/Pictures/Screenshots"
     filename_pattern = ""
+    format = "png"
     freeze_screen = true
     pipe_command = ""
     pipe_to_command = false
+    quality = 90
+    region_border_width = 2.0
+    region_dim_opacity = 0.64999997615814209
     region_modifier = "none"
     remember_last_region = false
     save_to_file = true
     show_cursor = false
+    show_region_dimensions = true
+    show_region_hint = true
     skip_annotate_on_copy_save = false
 
     [shell.session]
@@ -741,6 +573,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "1"
         variant = "default"
 
@@ -751,6 +584,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "2"
         variant = "default"
 
@@ -761,6 +595,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "3"
         variant = "default"
 
@@ -771,6 +606,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = true
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "4"
         variant = "destructive"
 
@@ -781,6 +617,7 @@ umbriel_overview_type_to_launch_enabled = false
         enabled = false
         glyph = ""
         label = ""
+        lockscreen_shortcut = ""
         shortcut = "3"
         variant = "default"
 
@@ -819,7 +656,7 @@ disk_used_activity_threshold = 80.0
 disk_used_critical_threshold = 95.0
 disk_used_pct_activity_threshold = 80.0
 disk_used_pct_critical_threshold = 95.0
-enabled = true
+enabled = false
 gpu_poll_seconds = 5.0
 gpu_temp_activity_threshold = 60.0
 gpu_temp_critical_threshold = 85.0
@@ -846,6 +683,7 @@ mode = "dark"
 pure_black_dark = false
 shell_mode = "follow"
 source = "custom"
+sync_color_scheme = true
 wallpaper_scheme = "m3-tonal-spot"
 
     [theme.templates]
@@ -871,6 +709,7 @@ transition_on_startup = false
     enabled = false
     interval_seconds = 1800
     order = "random"
+    pause_on_fullscreen = false
     recursive = false
 
 [weather]
@@ -888,14 +727,16 @@ type = "active_window"
 
 [widget.battery]
 color = "primary"
-font_family = "JetBrainsMono NF"
-scale = 1.0
-show_label = true
+display_mode = "graphic"
+font_family = "JetBrainsMono NF ExtraBold"
+font_scale = 0.90000000000000002
+scale = 0.90000000000000002
+show_label = false
 type = "battery"
 
 [widget.brightness]
 color = "primary"
-show_label = true
+show_label = false
 show_when_unavailable = true
 type = "brightness"
 
@@ -905,13 +746,16 @@ type = "control-center"
 
 [widget.cpu]
 capsule_foreground = "primary"
+color = "primary"
 glyph = "cpu-usage"
 label_show_units = false
 stat = "cpu_usage"
 type = "sysmon"
 
 [widget.date]
-format = "{:%a %d %b}"
+color = "primary"
+font_family = "JetBrainsMono NF"
+format = "{:%I:%M %p}"
 type = "clock"
 
 [widget.input_volume]
@@ -924,7 +768,7 @@ type = "keyboard_layout"
 
 [widget.launcher]
 custom_image_colorize = true
-glyph = "search"
+glyph = "zodiac-aries"
 type = "launcher"
 
 [widget.lock_keys]
@@ -969,6 +813,7 @@ type = "sysmon"
 [widget.tray]
 capsule_padding = 8
 capsule_radius = 20
+drawer = true
 match_adjacent_spacing = true
 type = "tray"
 
@@ -977,7 +822,7 @@ capsule_foreground = "secondary"
 color = "primary"
 glyph = "music"
 mute_glyph = "music-off"
-show_label = true
+show_label = false
 type = "volume"
 
 [widget.wallpaper]
@@ -985,8 +830,12 @@ glyph = "image"
 type = "wallpaper"
 
 [widget.workspaces]
+empty_color = "on_tertiary"
 font_family = "JetBrainsMono NF"
-pill_scale = 0.75
-show_labels = false
+font_weight = 800
+inactive_pill_size = 2.2000000000000002
+occupied_color = "tertiary"
+pill_scale = 1.0
+show_labels = true
 style = "regular"
 type = "workspaces"

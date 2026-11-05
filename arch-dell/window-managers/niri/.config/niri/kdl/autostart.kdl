@@ -1,3 +1,3 @@
 // ~~ autostart ~~
 
-spawn-at-startup "noctalia"
+spawn-sh-at-startup "NOCTALIA_CONFIG_HOME=$HOME/.config/noctalia-niri NOCTALIA_STATE_HOME=$HOME/.local/state/noctalia-niri noctalia"

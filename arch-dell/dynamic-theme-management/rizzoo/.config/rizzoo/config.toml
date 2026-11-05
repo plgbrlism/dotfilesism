@@ -64,9 +64,9 @@ template = "colors-starship-tyn.toml"
 output   = "~/.config/starship/variants/dynamic.toml"
 
 # wayland desktop shell
-[noctalia]
-template = "colors-noctalia.json"
-output   = "~/.config/noctalia/palettes/rizzoo.json"
+[noctalia-niri]
+template = "colors-noctalia-niri.json"
+output   = "~/.config/noctalia-niri/noctalia/palettes/rizzoo.json"
 
 [noctalia-sway]
 template = "colors-noctalia-sway.json"

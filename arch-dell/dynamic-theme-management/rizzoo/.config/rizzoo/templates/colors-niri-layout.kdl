@@ -28,7 +28,7 @@ window-rule {
     match is-floating=true
     border {
         on
-        width 2
+        width 1
         active-color "{{ primary:rgba }}"
         inactive-color "{{ outline_variant:rgba }}"
     }
