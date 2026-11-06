@@ -1,80 +1,58 @@
-#       ___                      
-# \  / |__  |    |    |  |  |\/| 
-#  \/  |___ |___ |___ \__/  |  | 
-#                                
-
-# # driftwm configuration — mirrors ~/.config/sway
-# #
-# # Driftwm is a scrolling canvas WM, not a tiling WM, so a few sway
-# # concepts have no direct equivalent (tiling tree, i3-qol swaps,
-# # workspaces-as-virtual-desktops). Where that happens the closest
-# # driftwm-native action is used and noted in a comment.
-
-# ## General
+#  __   __     ___ ___            
+# |  \ |__) | |__   |  |  |  |\/| 
+# |__/ |  \ | |     |  |/\|  |  | 
+# 
+                                
+# general
 mod_key = "super"
-focus_follows_mouse = false          # matches `focus_follows_mouse` intent
+focus_follows_mouse = true
 focus_placement = "center"
 window_placement = "auto"
 
-# ## Autostart
-# Equivalent of sway's system.conf + autostart.conf.
-# Change XDG_CURRENT_DESKTOP to "sway" here (and in the dbus line below)
-# if noctalia complains about an unknown desktop.
+# autostart
 autostart = [
-    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=driftwm QT_QPA_PLATFORMTHEME XCURSOR_THEME XCURSOR_SIZE",
+    "dbus-update-activation-environment --systemd WAYLAND_DISPLAY XDG_CURRENT_DESKTOP=driftwm QT_QPA_PLATFORMTHEME",
     "systemctl --user start xdg-desktop-portal-gtk",
-    "noctalia",
+    "NOCTALIA_CONFIG_HOME=$HOME/.config/noctalia-drift NOCTALIA_STATE_HOME=$HOME/.local/state/noctalia-drift noctalia",
 ]
 
-# ## Environment
-# sway injected these via dbus-update; driftwm sets them for every client.
+# environment
 [env]
 QT_QPA_PLATFORMTHEME = "qt6ct"
-XCURSOR_THEME = "Twilight-cursors"
-XCURSOR_SIZE = "30"
 
-# ## Input
-# Sway: tap enabled, dwt enabled, tap_button_map lrm, drag_lock disabled,
-# scroll_factor 0.9. Only the two with driftwm equivalents are kept.
+# input
 [input.trackpad]
 tap_to_click = true
-disable_while_typing = true
-# scroll_factor 0.9 → no exact equivalent; adjust [navigation] trackpad_speed
-# if panning feels too fast/slow.
+disable_while_typing = false
+natural_scroll = false
 
-# ## Decorations / effects
-# From swayfx.conf + colors/variants/dynamic.conf + appearance.conf
+[navigation]
+trackpad_speed = 1
+auto_navigate_on_click = true
+
+# decorations
 [decorations]
-border_width = 0                     # default_border pixel 0
-border_color = "#101416"             # client.unfocused background
-border_color_focused = "#7caaba"     # client.focused border
-corner_radius = 12                   # corner_radius 12
-shadow = true                        # shadows enable
-blur = true                          # blur enable (per-window backdrop)
-opacity = 0.8                        # default_dim_inactive 0.2 → 1 - 0.2
+default_mode = "minimal"
+border_width = 0        
+corner_radius = 12
+shadow = true
+blur = true
+opacity = 0.8                   
 opacity_focused = 1.0
-bg_color = "#1c2022"                 # client.focused background (title bar)
-fg_color = "#e0e3e5"                 # client.focused text
-font = "Jetbrains Mono Nerd Font"
-font_size = 10                       # pango:... 10
 
 [background]
 type = "none"
 
-# Swayfx blur_passes 2 → driftwm blur_radius (Kawase passes)
-# Swayfx blur_radius 1 → driftwm blur_strength (texel spread)
-# Swayfx animation_duration_ms 170 ≈ driftwm animation_speed 0.5
 [effects]
 blur_radius = 2
 blur_strength = 1.0
 animation_speed = 0.5
 
-# gaps inner 3, gaps outer 0
 [snap]
-gap = 3.0
+gap = 5.0
 outer_gap = 0.0
 
-# ## Outputs — resolution.conf
+# outputs/resolution
 [[outputs]]
 name = "eDP-1"
 mode = "1366x768@60"
@@ -83,38 +61,18 @@ position = [0, 0]
 
 [[outputs]]
 name = "HDMI-A-1"
-mode = "1366x768@59.79"
+mode = "1366x768@59"
 scale = 1.0
 position = [1366, 0]
 
-# ## Bookmarks — stand-ins for sway workspaces 1–10
-# 5×2 grid on the canvas. mod+N jumps here; mod+shift+N sends the
-# focused window here (mirrors `bindsym $mod+Shift+N move container to
-# workspace number N`).
-[navigation.bookmarks]
-"1"  = [0,    2000]
-"2"  = [2000, 2000]
-"3"  = [4000, 2000]
-"4"  = [6000, 2000]
-"5"  = [8000, 2000]
-"6"  = [0,    0]
-"7"  = [2000, 0]
-"8"  = [4000, 0]
-"9"  = [6000, 0]
-"10" = [8000, 0]
-
-# ## Mouse — floating_modifier $mod
-# sway's floating_modifier makes mod+drag move/resize floating windows.
-# In driftwm every window is "floating", so mod+drag on a window does
-# the same. Mod+left on empty canvas still pans (kept from defaults).
+# mouse modifer
 [mouse.on-window]
 "mod+left"  = "move-window"
 "mod+right" = "resize-window"
 
-# ## Keybindings — keybindings.conf
+# keybindings
 [keybindings]
-
-# Launchers & apps
+# apps
 "mod+return" = "exec ~/.local/bin/dispatch terminal"
 "mod+e"      = "exec ~/.local/bin/dispatch file-manager"
 "mod+y"      = "exec ~/.local/bin/dispatch terminal-fm"
@@ -124,62 +82,40 @@ position = [1366, 0]
 "mod+space"  = "spawn noctalia msg panel-toggle control-center"
 "alt+tab"    = "spawn noctalia msg window-switcher"
 
-# Window management
-"mod+c" = "close-window"           # $mod+c kill
-"mod+f" = "toggle-fullscreen"      # $mod+f fullscreen toggle
-"mod+v" = "toggle-pin-to-screen"   # $mod+v floating toggle — closest: pin to screen
-"mod+m" = "quit"                   # $mod+m exit
+# window management
+"mod+c" = "close-window"           
+"mod+f" = "toggle-fullscreen"      
+"mod+v" = "toggle-pin-to-screen"
+"mod+g" = "fit-window"
+"mod+m" = "quit"
 
-# Focus (vim)
+"mod+shift+w" = "none"
+"mod+o" = "zoom-to-fit-snapped"
+
+# focus
 "mod+h" = "focus-nearest left"
 "mod+l" = "focus-nearest right"
 "mod+k" = "focus-nearest up"
 "mod+j" = "focus-nearest down"
 
-# Move containers
-"mod+shift+left"  = "move-to-snap left"
-"mod+shift+down"  = "move-to-snap down"
-"mod+shift+up"    = "move-to-snap up"
-"mod+shift+right" = "move-to-snap right"
-
-# Swap (vim, mirror of the above — driftwm has no tree swap, so this
-# is the same move-to-snap action under the vim keys).
+# swap
 "mod+shift+h" = "move-to-snap left"
 "mod+shift+l" = "move-to-snap right"
 "mod+shift+k" = "move-to-snap up"
 "mod+shift+j" = "move-to-snap down"
 
-# Resize (ctrl+vim)
-# grow height / shrink height → grow / shrink the top edge
-# grow width  / shrink width  → grow / shrink the right edge
+# resize
 "mod+ctrl+k" = "grow-window up"
 "mod+ctrl+j" = "shrink-window down"
 "mod+ctrl+l" = "grow-window right"
 "mod+ctrl+h" = "shrink-window left"
 
-# Workspaces 1–10
-"mod+1" = "go-to-bookmark 1"
-"mod+2" = "go-to-bookmark 2"
-"mod+3" = "go-to-bookmark 3"
-"mod+4" = "go-to-bookmark 4"
-"mod+5" = "go-to-bookmark 5"
-"mod+6" = "go-to-bookmark 6"
-"mod+7" = "go-to-bookmark 7"
-"mod+8" = "go-to-bookmark 8"
-"mod+9" = "go-to-bookmark 9"
-"mod+0" = "go-to-bookmark 10"
+[gestures.anywhere]
+"3-finger-pinch" = "none"
+"4-finger-pinch" = "zoom"
 
-"mod+shift+1" = "move-to-bookmark 1"
-"mod+shift+2" = "move-to-bookmark 2"
-"mod+shift+3" = "move-to-bookmark 3"
-"mod+shift+4" = "move-to-bookmark 4"
-"mod+shift+5" = "move-to-bookmark 5"
-"mod+shift+6" = "move-to-bookmark 6"
-"mod+shift+7" = "move-to-bookmark 7"
-"mod+shift+8" = "move-to-bookmark 8"
-"mod+shift+9" = "move-to-bookmark 9"
-"mod+shift+0" = "move-to-bookmark 10"
+# explicit empty bookmark 
+[navigation.bookmarks]
 
-# Sway itself
-"mod+shift+e" = "reload-config"
-"mod+shift+r" = "reload-config"    # driftwm hot-reloads; no separate "restart"
+[session]
+restore_bookmarks = false
