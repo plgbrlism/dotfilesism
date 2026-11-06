@@ -11,7 +11,6 @@
 #	 tiktok: @fuzzbuzz.tech
 
 include ~/.config/sway/colors/colors.conf
-include ~/.config/sway/conf/startup.conf
 include ~/.config/sway/conf/resolution.conf
 include ~/.config/sway/conf/font.conf
 include ~/.config/sway/conf/apps.conf

@@ -70,7 +70,8 @@ output   = "~/.config/noctalia-niri/noctalia/palettes/rizzoo.json"
 
 [noctalia-sway]
 template = "colors-noctalia-sway.json"
-output   = "~/.config/noctalia-sway/noctalia/palettes/rizzoo.json" 
+output   = "~/.config/noctalia-sway/noctalia/palettes/rizzoo.json"
+enabled = false
 
 [noctalia-drift]
 template = "colors-noctalia-drift.json"
