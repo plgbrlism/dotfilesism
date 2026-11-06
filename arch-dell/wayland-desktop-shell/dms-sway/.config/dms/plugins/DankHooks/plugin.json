@@ -1,0 +1,17 @@
+{
+    "id": "dankHooks",
+    "name": "Dank Hooks",
+    "description": "Execute custom scripts on system events like wallpaper changes, theme updates, battery level changes, and more",
+    "version": "1.0.9",
+    "license": "MIT",
+    "author": "Dux Labs",
+    "icon": "webhook",
+    "type": "daemon",
+    "component": "./DankHooks.qml",
+    "settings": "./DankHooksSettings.qml",
+    "permissions": [
+        "settings_read",
+        "settings_write"
+    ],
+    "requires_dms": ">=2.0.0"
+}

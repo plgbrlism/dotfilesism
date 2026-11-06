@@ -1,0 +1,6 @@
+{
+  "dankHooks": {
+    "enabled": true,
+    "wallpaperPath": ".config/dms/hooks/on-wallpaper-change.sh"
+  }
+}

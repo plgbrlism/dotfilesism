@@ -14,7 +14,7 @@ pick = 0
 #command = "awww img {{ image }} --transition-type random"
 
 [custom_colors]
-success    = { color = "#386B35", blend = true }
+success  = { color = "#386B35", blend = true }
 
 # tui system monitor
 [btop]
@@ -77,6 +77,10 @@ enabled = false
 template = "colors-noctalia-drift.json"
 output   = "~/.config/noctalia-drift/noctalia/palettes/rizzoo.json" 
 
+[dms-dux]
+template = "colors-dank.json"
+output   = "~/.config/dms/palettes/rizzoo.json"
+ 
 # mcq card builder (personal)
 [anki-cards]
 template = "mcq-anki.css"
@@ -104,3 +108,4 @@ output   = "~/.config/Kvantum/KvMaterial/KvMaterial.svg"
 [kvantum-kvconfig]
 template = "colors-kvantum.kvconfig"
 output   = "~/.config/Kvantum/KvMaterial/KvMaterial.kvconfig"
+
