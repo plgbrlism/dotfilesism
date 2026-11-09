@@ -26,6 +26,7 @@ apps/cli/peaclock/.peaclock/history
 id_*
 .credentials*
 credentials*
+**/fish/config.secrets.fish
 
 # local-only state
 *history*

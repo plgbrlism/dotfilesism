@@ -480,5 +480,7 @@
   "powerMenuGridLayout": false,
   "spotlightSectionViewModes": {
     "apps": "list"
-  }
+  },
+  "batteryProfileName": "",
+  "wallpaperFillMode": "Fill"
 }

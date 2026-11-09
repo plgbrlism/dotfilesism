@@ -594,7 +594,6 @@ enabled = []
     name = "community"
 
 [shell]
-app_icon_colorize = true
 avatar_path = "/home/paul/Pictures/icons/a_man_with_black_hair_and_blue_eyes.webp"
 button_borders = false
 card_borders = false
