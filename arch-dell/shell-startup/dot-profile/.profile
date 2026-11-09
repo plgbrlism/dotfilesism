@@ -4,15 +4,16 @@
 export TERMINAL="kitty"
 export EDITOR="micro"
 export VISUAL="micro"
-export MICRO_TRUECOLOR=1
+export MICRO_TRUECOLOR="1"
 
 # ~~ qt apps use qt6ct ~~
 export QT_QPA_PLATFORMTHEME="qt6ct"
+export QT_QPA_PLATFORMTHEME_QT6="qt6ct"
 unset QT_STYLE_OVERRIDE
 
 # ~~ cursor ~~
 export XCURSOR_THEME="Twilight-cursors"
-export XCURSOR_SIZE=30
+export XCURSOR_SIZE="30"
 
 # ~~ sys paths ~~
 export PATH="$HOME/.local/bin:/usr/local/bin:/usr/sbin:$PATH"
