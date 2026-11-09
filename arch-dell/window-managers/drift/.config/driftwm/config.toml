@@ -24,7 +24,7 @@ QT_QPA_PLATFORMTHEME = "qt6ct"
 [input.trackpad]
 tap_to_click = true
 disable_while_typing = false
-natural_scroll = false
+natural_scroll = true
 
 [navigation]
 trackpad_speed = 1

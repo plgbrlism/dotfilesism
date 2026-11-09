@@ -4,6 +4,7 @@ input {
     focus-follows-mouse
 
     touchpad {
+    	natural-scroll
         tap
         tap-button-map "left-middle-right"
         dwt
