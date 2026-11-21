@@ -22,5 +22,5 @@ export PATH="$HOME/.cargo/bin:$PATH"
 # ~~ node & bun ~~
 export NVM_DIR="$HOME/.nvm"
 export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$BUN_INSTALL/node_modules/.bin:$PATH"
 export PATH="$HOME/scripts:$PATH"

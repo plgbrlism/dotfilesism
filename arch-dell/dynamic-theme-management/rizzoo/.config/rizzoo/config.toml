@@ -77,6 +77,10 @@ enabled = false
 template = "colors-noctalia-drift.json"
 output   = "~/.config/noctalia-drift/noctalia/palettes/rizzoo.json" 
 
+[vespertine-niri]
+template = "colors-vespertine-niri.json"
+output   = "~/.config/vespertine-niri/vespertine/palettes/rizzoo.json"
+
 [dms-dux]
 template = "colors-dank.json"
 output   = "~/.config/dms/palettes/rizzoo.json"

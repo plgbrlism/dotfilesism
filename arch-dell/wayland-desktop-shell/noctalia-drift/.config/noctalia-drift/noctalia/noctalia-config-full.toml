@@ -1,6 +1,6 @@
 [accessibility]
+density = "comfortable"
 high_contrast = false
-ui_scale = 0.94999998807907104
 
 [audio]
 colorize_icons = false
@@ -92,8 +92,11 @@ connection_notifications = false
 
 [brightness]
 enable_ddcutil = false
+enable_scheduled_brightness = false
 ignore_mmids = []
 minimum_brightness = 0.049999997019767761
+scheduled_day_brightness = 1.0
+scheduled_night_brightness = 0.5
 sync_all_monitors = false
 
 [calendar]
@@ -111,7 +114,6 @@ refresh_minutes = 15
     use_event_reminders = true
 
 [control_center]
-circular_avatar = true
 hidden_tabs = [ "media", "weather", "calendar", "screen-time" ]
 show_avatar_border = false
 show_session_button = true
@@ -267,6 +269,8 @@ pre_action_fade_seconds = 0.0
 
 [keybinds]
 cancel = [ "Escape" ]
+category_next = [ "Ctrl+Tab" ]
+category_previous = [ "Ctrl+Shift+ISO_Left_Tab" ]
 copy = [ "Ctrl+c" ]
 delete = [ "Delete" ]
 down = [ "Down" ]
@@ -359,6 +363,10 @@ widget_order = [ "lockscreen-login-box@eDP-1", "lockscreen-widget-00000000000000
         image_path = "/home/paul/Pictures/icons/a_drawing_of_a_man_with_white_hair_and_blue_eyes.webp"
         opacity = 0.70000000000000007
 
+[motion]
+expressive = true
+panel = "fluid"
+
 [nightlight]
 enabled = true
 force = false
@@ -387,6 +395,7 @@ position = "bottom_right"
 scale = 1.0
 show_actions = true
 show_app_name = true
+show_progress_bar = true
 width = 450
 
 [osd]
@@ -446,13 +455,15 @@ enabled = []
 avatar_path = "/home/paul/Pictures/icons/a_man_with_black_hair_and_blue_eyes.webp"
 button_borders = false
 card_borders = false
+circular_avatar = true
 clipboard_auto_paste = "auto"
 clipboard_confirm_clear_history = true
 clipboard_enabled = true
 clipboard_history_max_entries = 50
 clipboard_image_action_command = ""
 clipboard_keep_from_closed_apps = true
-corner_radius_scale = 2.0
+corner_shape = "round"
+corner_style = "material"
 date_format = "%A, %x"
 disable_mipmaps = false
 external_ip_enabled = false
@@ -487,7 +498,7 @@ umbriel_overview_type_to_launch_enabled = false
 
     [shell.animation]
     enabled = true
-    speed = 3.3500001430511475
+    speed = 1.7000000476837158
 
     [shell.greeter_sync]
     auto_sync = false
@@ -656,6 +667,9 @@ umbriel_overview_type_to_launch_enabled = false
     [shell.shadow]
     alpha = 0.0
     direction = "center"
+
+    [shell.tooltip]
+    border = false
 
     [shell.window_switcher]
     colorize_icons = true
